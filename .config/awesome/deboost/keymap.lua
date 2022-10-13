@@ -23,7 +23,11 @@ local globalkeys = gears.table.join(
 		awful.util.spawn(
 			[[bash -c "(setxkbmap -query | grep -q \"layout:\s\+th\") && setxkbmap dvorak || setxkbmap th"]]
 		)
-	end, { description = "switch keyboard layout", group = "asdf" }),
+    d_popup.lily58_th()
+	end, { description = "switch keyboard layout", group = "aoeu" }),
+	awful.key({ modkey ,"Shift"}, "s", function()
+    d_popup.lily58_th()
+	end,{ description = "toggle lily58_TH popup", group = "aoeu" }),
 	--en th dvorak
 	--    awful.key({ modkey,  }, "space", function () awful.util.spawn([[bash -c "((setxkbmap -query | grep -q \"layout:\s\+us\") && setxkbmap th) ||((setxkbmap -query | grep -q \"layout:\s\+th\") && setxkbmap dvorak) || ((setxkbmap -query | grep -q \"layout:\s\+dvorak\") && setxkbmap us")]]) end,{description="switch keyboard layout", group="asdf"}),
 	awful.key({ modkey }, "e", function()
@@ -54,9 +58,6 @@ local globalkeys = gears.table.join(
 --	awful.key({ modkey }, "\\", function()
 --		awful.spawn("bash -c 'pamixer -t'")
 --	end, { description = "mute/unmute volume", group = "asdf" }),
-	awful.key({ modkey ,"Shift"}, "s", function()
-    d_popup.lily58_th()
-	end,{ description = "lily58 TH", group = "aoeu" }),
 	awful.key({ modkey }, "r", function()
 		run_shell.launch()
 	end),

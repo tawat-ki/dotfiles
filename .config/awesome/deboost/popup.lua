@@ -24,7 +24,7 @@ local popup_ = awful.popup({
 	opacity = 0.96,
 	placement = awful.placement.bottom,
 	shape = gears.shape.rect,
-	hide_on_right_click = true,
+  --hide_on_right_click = true,
 	visible = false,
 	ontop = true,
 })
