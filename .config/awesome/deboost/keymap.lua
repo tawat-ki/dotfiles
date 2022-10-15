@@ -1,4 +1,5 @@
 local awful = require("awful")
+local is_muted = "init"
 local wibox = require("wibox")
 local naughty = require("naughty")
 local gears = require("gears")
@@ -87,18 +88,35 @@ local globalkeys = gears.table.join(
 	end, { description = "mute/unmute volume", group = "audio" }),
 	awful.key({ modkey, alt, "Control", "Shift" }, "m", function()
 		awful.spawn.with_line_callback(
-			[[bash -c "pamixer --source $(pamixer --list-sources|grep Microphone|awk '{print($1)}') -m"]],
+			[[bash -c "pamixer --source $(pamixer --list-sources|grep Microphone|awk '{print($1)}') --get-mute"]],
 			{
+				stdout = function(line)
+					is_muted = line
+				end,
 				exit = function()
-					naughty.notify({
-						text = "muted",
-						timeout = 0,
-						destroy = function()
-							awful.spawn(
-								[[bash -c "pamixer --source $(pamixer --list-sources|grep Microphone|awk '{print($1)}') -u"]]
-							)
-						end,
-					})
+					if is_muted == "false" then
+						awful.spawn(
+							[[bash -c "pamixer --source $(pamixer --list-sources|grep Microphone|awk '{print($1)}') -m"]]
+						)
+						naughty_mic = naughty.notify({
+							text = "Muted!!",
+							timeout = 0,
+							border_color = "#44475a",
+							bg = "#ff6e67",
+							fg = "#282a36",
+							border_width = 2,
+							destroy = function()
+								awful.spawn(
+									[[bash -c "pamixer --source $(pamixer --list-sources|grep Microphone|awk '{print($1)}') -u"]]
+								)
+							end,
+						})
+					else
+						naughty.destroy(naughty_mic)
+						awful.spawn(
+							[[bash -c "pamixer --source $(pamixer --list-sources|grep Microphone|awk '{print($1)}') -u"]]
+						)
+					end
 				end,
 			}
 		)
