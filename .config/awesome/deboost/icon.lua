@@ -1,7 +1,10 @@
 local gears = require("gears")
 local wibox = require("wibox")
 local config_path = gears.filesystem.get_configuration_dir()
+local volume = wibox.widget.textbox("")
+volume.font = "sans 17"
 local ret = {
+  volume=volume,
 	gpu0_icon = wibox.widget({
 		image = config_path .. "/pic/gpu4.png",
 		resize = true,

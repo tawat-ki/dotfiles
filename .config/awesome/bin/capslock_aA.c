@@ -15,7 +15,7 @@ int main( int argc, char *argv[] )
     int i=0;
     /* Read the output a line at a time - output it. */
     while (fgets(path, sizeof(path), fp) != NULL) {
-		if (i==3) {if(path[22]=='n') printf("A\n");else printf("a\n");}
+		if (i==3) {if(path[22]=='n') printf("⇪\n");else printf(" \n");}
 		i++;
     }
     /* close */

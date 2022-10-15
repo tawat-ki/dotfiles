@@ -45,5 +45,5 @@ alias yt='youtube-dl -x --audio-format mp3'
 alias td='vim ~/todo.txt'
 alias dr='docker run --rm -it --entrypoint bash'
 
-cd ~/d/unknown_name_classification
-source ~/python_venv/fine_tuning/bin/activate
+#cd ~/d/unknown_name_classification
+#source ~/python_venv/fine_tuning/bin/activate

@@ -1,4 +1,5 @@
-local icon =require("deboost.icon")
+local icon = require("deboost.icon")
+local naughty = require("naughty")
 local awful = require("awful")
 local wibox = require("wibox")
 local gears = require("gears")
@@ -8,13 +9,26 @@ local run_shell = require("awesome-wm-widgets.run-shell.run-shell")
 local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
 local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
 local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
-local capslock_aA = awful.widget.watch(config_path .. "/bin/capslock_aA", 0.1)
-local volume=wibox.widget.textbox("")
-volume.font="sans 17"
+
+local capslock_aA,capslock_aA_timer = awful.widget.watch(config_path .. "/bin/caps", 0.1)
+local volume_val,volume_timer= awful.widget.watch([[bash -c "pactl list sinks |grep 'Volume: f'|awk 'NR==2{print($5)}'"]], 10)
+--local caps_cmd = [[bash -c "cat /sys/class/leds/*::capslock/brightness |awk 'NR==1{printf(\"%d\",$1)} "]]
+--local function update_caps()
+--  awful.spawn.with_line_callback(caps_cmd, {
+--    stdout = function(line)
+--        capslock_num_timer:emit_signal("timeout") 
+--        naughty.notify { text = "LINE:"..line }
+--    end,
+--    stderr = function(line)
+--        naughty.notify { text = "ERR:"..line}
+--    end,
+--  })
+--end
+
 
 local b550_widget = wibox.container({
 	--ethernet_icon,
-  wibox.widget.textbox(" | "),
+	wibox.widget.textbox(" | "),
 	net_speed_widget(),
 	wibox.widget.textbox("| "),
 	--cpu_icon,
@@ -42,39 +56,41 @@ local b550_widget = wibox.container({
 	--gpu0_icon,
 	--wibox.widget.textbox(" "),
 	--awful.widget.watch(
-	--	[[bash -c "nvidia-settings -q GPUUtilization  |grep memory |awk 'NR==1{printf(\"%0.1f%%\",substr($4,10))}'"]],
-	--	2
+	--  [[bash -c "nvidia-settings -q GPUUtilization  |grep memory |awk 'NR==1{printf(\"%0.1f%%\",substr($4,10))}'"]],
+	--  2
 	--),
 	--awful.widget.watch(
-	--	[[bash -c "nvidia-settings -q gpucoretemp  | grep B550 | awk 'NR==1{ printf(\" %0.1f °C\", $4);}'"]],
-	--	2
+	--  [[bash -c "nvidia-settings -q gpucoretemp  | grep B550 | awk 'NR==1{ printf(\" %0.1f °C\", $4);}'"]],
+	--  2
 	--),
 	--awful.widget.watch(
-	--	[[bash -c "nvidia-settings -q [gpu:0]/useddedicatedgpumemory  |grep B550 |awk '{printf(\"   VRAM %0.1f%%\",substr($4,1,length($4)-1)/80)}'"]],
-	--	2
+	--  [[bash -c "nvidia-settings -q [gpu:0]/useddedicatedgpumemory  |grep B550 |awk '{printf(\"   VRAM %0.1f%%\",substr($4,1,length($4)-1)/80)}'"]],
+	--  2
 	--),
 	--nvidia1
 	--      wibox.widget.textbox('  |  '),
-	--		gpu1_icon,
-	--  	awful.widget.watch([[bash -c "nvidia-settings -q GPUUtilization  |grep memory |awk 'NR==2{printf(\" %0.1f%%\",substr($4,10))}'"]], 2),
+	--    gpu1_icon,
+	--    awful.widget.watch([[bash -c "nvidia-settings -q GPUUtilization  |grep memory |awk 'NR==2{printf(\" %0.1f%%\",substr($4,10))}'"]], 2),
 	--      awful.widget.watch([[bash -c "nvidia-settings -q gpucoretemp | grep B550 | awk 'NR==2{ printf(\" %0.1f °C\", $4);}'"]], 2),
 	--      wibox.widget.textbox('  |  '),
 	--      awful.widget.watch([[bash -c "nvidia-settings -q [gpu:1]/useddedicatedgpumemory  |grep B550 |awk '{printf(\"   VRAM %0.1f%%\",substr($4,1,length($4)-1)/120)}'"]], 2),
-  wibox.widget.textbox(" | "),
-  volume,
-  wibox.widget.textbox(" "),
-  awful.widget.watch([[bash -c "pactl list sinks |grep 'Volume: f'|awk 'NR==2{print($5)}'"]], 0.1),
+	wibox.widget.textbox(" | "),
+	icon.volume,
+	wibox.widget.textbox(" "),
+	volume_val,
 
-  wibox.widget.textbox(" | "),
-  capslock_aA,
-  wibox.widget.textbox("  "),
-  mykeyboardlayout,
-  wibox.widget.systray(),
-  mytextclock,
+	wibox.widget.textbox(" | "),
+	capslock_aA,
+  capslock_font,
+  capslock_num,
+	wibox.widget.textbox("  "),
+	mykeyboardlayout,
+	wibox.widget.systray(),
+	mytextclock,
 	layout = wibox.layout.fixed.horizontal,
 })
-local aspire_widget={
-  	wibox.widget.textbox("  |  "),
+local aspire_widget = {
+	wibox.widget.textbox("  |  "),
 	awful.widget.watch([[bash -c "iwgetid -r"]]),
 	net_speed_widget(),
 	wibox.widget.textbox("|  "),
@@ -88,14 +104,14 @@ local aspire_widget={
 	wibox.widget.textbox("  "),
 	awful.widget.watch([[bash -c "free | grep Mem | awk '{printf(\"%.1f%%\"),$3/$2*100}'"]], 1),
 	wibox.widget.textbox("  |  "),
-
-  sun,
+	sun,
 	awful.widget.watch([[bash -c "light -G | awk '{printf(\"%.1f%%\"),$1}'"]], 1),
 	wibox.widget.textbox("  |  "),
-  volume,
---	brightness_widget({ type = "arc", program = "light", step = 1 }),
+	icon.volume,
+  volume_val,
+	--  brightness_widget({ type = "arc", program = "light", step = 1 }),
 	--cat /proc/cpuinfo | grep MHz | awk '{sum +=$4}END{printf(" %.1fMHz"),sum/4 }'
-	awful.widget.watch([[bash -c "pactl list sinks |grep 'Volume: f'|awk '{print($5)}'"]], 0.1),
+	--volume_val,
 	wibox.widget.textbox(" | "),
 	capslock_icon,
 	wibox.widget.textbox("  "),
@@ -103,12 +119,12 @@ local aspire_widget={
 	wibox.widget.systray(),
 	mytextclock,
 	layout = wibox.layout.fixed.horizontal,
-
 }
-local rt={
-  b550=b550_widget,
-  aspire=aspire_widget,
-
-  
+local rt = {
+	b550 = b550_widget,
+	aspire = aspire_widget,
+  volume_timer= volume_timer,
+  capslock_aA_timer =capslock_aA_timer,
+--  update_caps=update_caps,
 }
-return rt 
+return rt

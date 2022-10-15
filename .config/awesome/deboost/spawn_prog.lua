@@ -35,4 +35,5 @@ awful.spawn.with_shell("qdbus org.kde.kglobalaccel /kglobalaccel blockGlobalShor
 awful.spawn.with_shell("xset s off")
 awful.spawn.with_shell("xset -dpms")
 awful.spawn.with_shell("xset s noblank")
+awful.spawn.with_shell("xset s noblank")
 --awful.spawn.with_shell("lxsession")

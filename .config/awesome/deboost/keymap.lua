@@ -1,12 +1,17 @@
 local awful = require("awful")
+local wibox = require("wibox")
+local naughty = require("naughty")
 local gears = require("gears")
 local menubar = require("menubar")
-local d_popup=require("deboost.popup")
+local d_popup = require("deboost.popup")
 local config_path = gears.filesystem.get_configuration_dir()
 local hotkeys_popup = require("awful.hotkeys_popup")
 local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
 local run_shell = require("awesome-wm-widgets.run-shell.run-shell")
+local d_widget = require("deboost.widget")
 local modkey = "Mod4"
+local alt = "Mod1"
+local lockkey = "Lock"
 -- {{{ Mouse bindings
 --root.buttons(gears.table.join(
 --    awful.button({ }, 3, function () mymainmenu:toggle() end),
@@ -14,7 +19,6 @@ local modkey = "Mod4"
 --    awful.button({ }, 5, awful.tag.viewprev)
 --))
 -- }}}
-
 -- {{{ Key bindings
 local globalkeys = gears.table.join(
 	--mykey
@@ -23,11 +27,25 @@ local globalkeys = gears.table.join(
 		awful.util.spawn(
 			[[bash -c "(setxkbmap -query | grep -q \"layout:\s\+th\") && setxkbmap dvorak || setxkbmap th"]]
 		)
-    d_popup.lily58_th()
+		d_popup.lily58_th()
 	end, { description = "switch keyboard layout", group = "aoeu" }),
-	awful.key({ modkey ,"Shift"}, "s", function()
-    d_popup.lily58_th()
-	end,{ description = "toggle lily58_TH popup", group = "aoeu" }),
+	awful.key({ modkey, "Shift" }, "s", function()
+		d_popup.lily58_th()
+	end, { description = "toggle lily58_TH popup", group = "aoeu" }),
+	--  awful.key({}, "Caps_Lock", function()
+	--    d_widget.update_caps()
+	--    naughty.notify({ text = "CAPS" })
+	--  end, { description = "capslock update", group = "aoeu" }),
+	--  awful.key({}, "Caps_Lock", function()
+	--    awful.spawn.with_line_callback( [[bash -c "sleep 0."]],({
+	--      exit = function()
+	--        --d_widget.capslock_aA_timer:emit_signal("timeout")
+	--        naughty.notify({ text = "aoeu" })
+	--        d_widget.update_caps()
+	--      end,
+	--    }))
+	--
+	--  end, { description = "capslock update", group = "aoeu" }),
 	--en th dvorak
 	--    awful.key({ modkey,  }, "space", function () awful.util.spawn([[bash -c "((setxkbmap -query | grep -q \"layout:\s\+us\") && setxkbmap th) ||((setxkbmap -query | grep -q \"layout:\s\+th\") && setxkbmap dvorak) || ((setxkbmap -query | grep -q \"layout:\s\+dvorak\") && setxkbmap us")]]) end,{description="switch keyboard layout", group="asdf"}),
 	awful.key({ modkey }, "e", function()
@@ -50,14 +68,41 @@ local globalkeys = gears.table.join(
 		awful.util.spawn("brave")
 	end, { description = "brave browser", group = "launcher" }),
 	awful.key({ modkey }, "]", function()
-		awful.spawn("bash -c 'pamixer -i 3'")
-	end, { description = "inc volume", group = "volumn" }),
+		awful.spawn.with_line_callback("bash -c 'pamixer -i 3'", {
+			exit = function()
+				d_widget.volume_timer:emit_signal("timeout")
+			end,
+		})
+	end, { description = "inc volume", group = "audio" }),
+
 	awful.key({ modkey }, "[", function()
-		awful.spawn("bash -c 'pamixer -d 3'")
-	end, { description = "dec volume", group = "volumn" }),
---	awful.key({ modkey }, "\\", function()
---		awful.spawn("bash -c 'pamixer -t'")
---	end, { description = "mute/unmute volume", group = "asdf" }),
+		awful.spawn.with_line_callback("bash -c 'pamixer -d 3'", {
+			exit = function()
+				d_widget.volume_timer:emit_signal("timeout")
+			end,
+		})
+	end, { description = "dec volume", group = "audio" }),
+	awful.key({ modkey }, "\\", function()
+		awful.spawn("bash -c 'pamixer -t'")
+	end, { description = "mute/unmute volume", group = "audio" }),
+	awful.key({ modkey, alt, "Control", "Shift" }, "m", function()
+		awful.spawn.with_line_callback(
+			[[bash -c "pamixer --source $(pamixer --list-sources|grep Microphone|awk '{print($1)}') -m"]],
+			{
+				exit = function()
+					naughty.notify({
+						text = "muted",
+						timeout = 0,
+						destroy = function()
+							awful.spawn(
+								[[bash -c "pamixer --source $(pamixer --list-sources|grep Microphone|awk '{print($1)}') -u"]]
+							)
+						end,
+					})
+				end,
+			}
+		)
+	end, { description = "mute microphone", group = "audio" }),
 	awful.key({ modkey }, "r", function()
 		run_shell.launch()
 	end),

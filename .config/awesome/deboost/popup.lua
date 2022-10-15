@@ -28,7 +28,7 @@ local popup_ = awful.popup({
 	visible = false,
 	ontop = true,
 })
-function lily58_th()
+local function lily58_th()
   popup_.visible= not popup_.visible 
 end
 
