@@ -58,13 +58,6 @@ local globalkeys = gears.table.join(
   awful.key({ modkey }, "b", function()
     awful.util.spawn("qutebrowser")
   end, { description = "qute-browser", group = "launcher" }),
-  awful.key({ "Ctrl" }, "\\", function()
-    awful.spawn('bash -c "cat ' .. config_path .. "key/git_pass |tr -d '\n'|xclip -sel clip \"")
-  end, { description = "git pass to clipboard", group = "aoeu" }),
-  awful.key({ "Ctrl", "Shift" }, "\\", function()
-    awful.spawn('bash -c "cat ' .. config_path .. "key/mfec_pass |tr -d '\n'|xclip -sel clip \"")
-    print("pressed")
-  end, { description = "mfec pass to clipboard", group = "aoeu" }),
   awful.key({ modkey, "Shift" }, "b", function()
     awful.util.spawn("brave")
   end, { description = "brave browser", group = "launcher" }),
