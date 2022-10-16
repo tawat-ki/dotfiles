@@ -30,6 +30,8 @@ export EDITOR=nvim
 #source ~/.local/bin/virtualenvwrapper.sh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
 export PYENV_ROOT="$HOME/.pyenv"
+export PATH="/home/deboost/.config/rofi/scripts:$PATH"
+
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
@@ -37,7 +39,8 @@ export PATH="$HOME/.poetry/bin:$PATH"
 export FZF_DEFAULT_COMMAND='rg --hidden -l ""'
 force_color_prompt=yes
 alias vim="nvim"
-alias j='jupyter qtconsole --style=dracula &'
+#alias j='jupyter qtconsole --style=dracula &'
+alias j='jupyter-lab --ip 192.168.2.33 --port 8888'
 alias pb='fg %+'
 alias pm='python ./main.py'
 alias to_csv='python ~/d/xlsx.py'
