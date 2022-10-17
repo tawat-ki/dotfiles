@@ -12,6 +12,7 @@ local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 
 local capslock_aA,capslock_aA_timer = awful.widget.watch(config_path .. "/bin/caps", 0.1)
 local volume_val,volume_timer= awful.widget.watch([[bash -c "pactl list sinks |grep 'Volume: f'|awk 'NR==2{print($5)}'"]], 10)
+local light_val,light_timer= awful.widget.watch([[bash -c "light -G | awk '{printf(\"%.1f%%\"),$1}'"]], 1)
 --local caps_cmd = [[bash -c "cat /sys/class/leds/*::capslock/brightness |awk 'NR==1{printf(\"%d\",$1)} "]]
 --local function update_caps()
 --  awful.spawn.with_line_callback(caps_cmd, {
@@ -104,7 +105,7 @@ local aspire_widget = {
 	wibox.widget.textbox("  "),
 	awful.widget.watch([[bash -c "free | grep Mem | awk '{printf(\"%.1f%%\"),$3/$2*100}'"]], 1),
 	wibox.widget.textbox("  |  "),
-	sun,
+	icon.sun,
 	awful.widget.watch([[bash -c "light -G | awk '{printf(\"%.1f%%\"),$1}'"]], 1),
 	wibox.widget.textbox("  |  "),
 	icon.volume,
@@ -125,6 +126,7 @@ local rt = {
 	aspire = aspire_widget,
   volume_timer= volume_timer,
   capslock_aA_timer =capslock_aA_timer,
+  light_timer =light_timer,
 --  update_caps=update_caps,
 }
 return rt

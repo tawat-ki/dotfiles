@@ -1,4 +1,11 @@
 local awful = require("awful")
+local noisy = [[bash -c '
+  for I in $(seq 1 5); do
+    date
+    echo err >&2
+    sleep 2
+  done
+']]
 local is_muted = "init"
 local wibox = require("wibox")
 local naughty = require("naughty")
@@ -33,22 +40,27 @@ local globalkeys = gears.table.join(
   awful.key({ modkey, "Shift" }, "s", function()
     d_popup.lily58_th()
   end, { description = "toggle lily58_TH popup", group = "aoeu" }),
-  --  awful.key({}, "Caps_Lock", function()
-  --    d_widget.update_caps()
-  --    naughty.notify({ text = "CAPS" })
-  --  end, { description = "capslock update", group = "aoeu" }),
-  --  awful.key({}, "Caps_Lock", function()
-  --    awful.spawn.with_line_callback( [[bash -c "sleep 0."]],({
-  --      exit = function()
-  --        --d_widget.capslock_aA_timer:emit_signal("timeout")
-  --        naughty.notify({ text = "aoeu" })
-  --        d_widget.update_caps()
-  --      end,
-  --    }))
-  --
-  --  end, { description = "capslock update", group = "aoeu" }),
-  --en th dvorak
-  --    awful.key({ modkey,  }, "space", function () awful.util.spawn([[bash -c "((setxkbmap -query | grep -q \"layout:\s\+us\") && setxkbmap th) ||((setxkbmap -query | grep -q \"layout:\s\+th\") && setxkbmap dvorak) || ((setxkbmap -query | grep -q \"layout:\s\+dvorak\") && setxkbmap us")]]) end,{description="switch keyboard layout", group="asdf"}),
+  awful.key({ modkey }, ";", function()
+    awful.spawn.with_line_callback("bash -c 'light -A 2'", {
+      exit = function()
+        d_widget.light_timer:emit_signal("timeout")
+      end,
+    })
+  end, { description = "inc brightness", group = "brightness" }),
+
+  awful.key({ modkey,"Shift" }, ";", function()
+    awful.spawn.with_line_callback("bash -c 'light -U 2'", {
+      exit = function()
+        d_widget.light_timer:emit_signal("timeout")
+      end,
+    })
+  end, { description = "dec brightness", group = "brightness" }),
+--  awful.key({}, "Caps_Lock", function()
+--    --[[bash -c "cat /sys/class/leds/*::capslock/brightness |awk 'NR==1{printf(\"%d\\\n",$1)} "]]
+--    awful.spawn.easy_async([[bash -c "sleep 1;xset q |awk 'NR==4{print($4)}'"]], function(stdout, stderr, reason, exit_code)
+--      naughty.notify { text = stdout}
+--    end)
+--  end),
   awful.key({ modkey }, "e", function()
     awful.util.spawn("alacritty -e ranger /home/deboost/Documents")
   end, { description = "ranger", group = "launcher" }),
@@ -68,7 +80,6 @@ local globalkeys = gears.table.join(
       end,
     })
   end, { description = "inc volume", group = "audio" }),
-
   awful.key({ modkey }, "[", function()
     awful.spawn.with_line_callback("bash -c 'pamixer -d 3'", {
       exit = function()
@@ -119,7 +130,6 @@ local globalkeys = gears.table.join(
   awful.key({ modkey }, "Left", awful.tag.viewprev, { description = "view previous", group = "tag" }),
   awful.key({ modkey }, "Right", awful.tag.viewnext, { description = "view next", group = "tag" }),
   awful.key({ modkey }, "Escape", awful.tag.history.restore, { description = "go back", group = "tag" }),
-
   awful.key({ modkey }, "j", function()
     awful.client.focus.byidx(1)
   end, { description = "focus next by index", group = "client" }),
@@ -129,7 +139,6 @@ local globalkeys = gears.table.join(
   awful.key({ modkey }, "w", function()
     mymainmenu:show()
   end, { description = "show main menu", group = "awesome" }),
-
   -- Layout manipulation
   awful.key({ modkey, "Shift" }, "j", function()
     awful.client.swap.byidx(1)
@@ -150,14 +159,12 @@ local globalkeys = gears.table.join(
       client.focus:raise()
     end
   end, { description = "go back", group = "client" }),
-
   -- Standard program
   awful.key({ modkey }, "Return", function()
     awful.spawn(terminal)
   end, { description = "open a terminal", group = "launcher" }),
   awful.key({ modkey, "Control" }, "r", awesome.restart, { description = "reload awesome", group = "awesome" }),
   awful.key({ modkey, "Shift" }, "q", awesome.quit, { description = "quit awesome", group = "awesome" }),
-
   awful.key({ modkey }, "l", function()
     awful.tag.incmwfact(0.05)
   end, { description = "increase master width factor", group = "layout" }),
@@ -189,11 +196,9 @@ local globalkeys = gears.table.join(
       c:emit_signal("request::activate", "key.unminimize", { raise = true })
     end
   end, { description = "restore minimized", group = "client" }),
-
   -- Prompt
   awful.key({ modkey }, "r", function()
-    --awful.screen.focused().mypromptbox:run()
-    menubar.show()
+    awful.screen.focused().mypromptbox:run()
   end, { description = "run prompt", group = "launcher" }),
 
   awful.key({ modkey }, "x", function()
@@ -208,10 +213,8 @@ local globalkeys = gears.table.join(
   awful.key({ modkey }, "p", function()
     awful.spawn([[launcher_t4]])
     --menubar.show()
-    --
   end, { description = "show the menubar", group = "launcher" })
 )
-
 local clientkeys = gears.table.join(
   awful.key({ modkey }, "f", function(c)
     c.fullscreen = not c.fullscreen

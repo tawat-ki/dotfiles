@@ -83,7 +83,7 @@ configuration {
 
 	/*---------- Misc setting ----------*/
 	terminal: "/usr/bin/alacritty";
-	font: "Mono 12";
+	font: "sans 12";
 	sort: false;
 	threads: 0;
 	click-to-exit: true;
