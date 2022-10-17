@@ -7,6 +7,7 @@ local sun = wibox.widget.textbox("盛")
 sun.font = "sans 17"
 local ret = {
   volume=volume,
+  sun=sun,
 	gpu0_icon = wibox.widget({
 		image = config_path .. "/pic/gpu4.png",
 		resize = true,

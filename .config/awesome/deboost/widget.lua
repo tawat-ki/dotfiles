@@ -11,7 +11,10 @@ local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
 local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 
 local capslock_aA,capslock_aA_timer = awful.widget.watch(config_path .. "/bin/caps", 0.1)
+
+--NR==1 for aspire
 local volume_val,volume_timer= awful.widget.watch([[bash -c "pactl list sinks |grep 'Volume: f'|awk 'NR==2{print($5)}'"]], 10)
+
 local light_val,light_timer= awful.widget.watch([[bash -c "light -G | awk '{printf(\"%.1f%%\"),$1}'"]], 1)
 --local caps_cmd = [[bash -c "cat /sys/class/leds/*::capslock/brightness |awk 'NR==1{printf(\"%d\",$1)} "]]
 --local function update_caps()
@@ -114,7 +117,7 @@ local aspire_widget = {
 	--cat /proc/cpuinfo | grep MHz | awk '{sum +=$4}END{printf(" %.1fMHz"),sum/4 }'
 	--volume_val,
 	wibox.widget.textbox(" | "),
-	capslock_icon,
+	capslock_aA,
 	wibox.widget.textbox("  "),
 	mykeyboardlayout,
 	wibox.widget.systray(),
