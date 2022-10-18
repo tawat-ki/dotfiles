@@ -8,7 +8,7 @@ local popup_ = awful.popup({
 	widget = {
 		{
 			{
-				image = config_path .. "/pic/lily58_thaiV2.png",
+				image = config_path .. "/pic/lily58_thaiV3.png",
 				resize = true,
 				widget = wibox.widget.imagebox,
 				forced_height = 220,

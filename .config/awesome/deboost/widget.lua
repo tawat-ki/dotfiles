@@ -32,7 +32,7 @@ local light_val,light_timer= awful.widget.watch([[bash -c "light -G | awk '{prin
 
 local b550_widget = wibox.container({
 	--ethernet_icon,
-	wibox.widget.textbox(" | "),
+	wibox.widget.textbox("ao | "),
 	net_speed_widget(),
 	wibox.widget.textbox("| "),
 	--cpu_icon,

@@ -17,6 +17,7 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
 local run_shell = require("awesome-wm-widgets.run-shell.run-shell")
 local d_widget = require("deboost.widget")
+local d_trans = require("deboost.translate")
 local modkey = "Mod4"
 local alt = "Mod1"
 local lockkey = "Lock"
@@ -61,6 +62,9 @@ local globalkeys = gears.table.join(
 --      naughty.notify { text = stdout}
 --    end)
 --  end),
+  awful.key({ modkey,"Shift"}, "t", function()
+    d_trans.launch()
+  end, { description = "popup translate-shell", group = "aoeu" }),
   awful.key({ modkey }, "e", function()
     awful.util.spawn("alacritty -e ranger /home/deboost/Documents")
   end, { description = "ranger", group = "launcher" }),
