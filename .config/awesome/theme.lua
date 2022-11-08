@@ -6,29 +6,55 @@ local theme_assets = require("beautiful.theme_assets")
 local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 local gears = require("gears")
+local wibox = require("wibox")
 local config_path= gears.filesystem.get_configuration_dir()
 local gfs = require("gears.filesystem")
 local themes_path = gfs.get_themes_dir()
 
 local theme = {}
-theme.font          = "Nerd Hack Font 9"
-
+theme.font          = "Nerd Hack Font Bold 9"
 theme.bg_normal     = "#282a36"
-theme.bg_focus      = "#44475a"
+theme.bg_focus      = "#bd93f9"
 theme.bg_urgent     = "#ff5555"
-theme.bg_minimize   = "#444444"
-theme.bg_systray    = theme.bg_normal
+theme.bg_minimize   = "#000000"
+theme.bg_systray    = "#282a36"
 
 theme.fg_normal     = "#aaaaaa"
-theme.fg_focus      = "#f8f8f2"
+theme.fg_focus      = "#282a36"
 theme.fg_urgent     = "#f8f8f2"
-theme.fg_minimize   = "#f8f8f2"
+theme.fg_minimize   = "#aaaaaa"
 
-theme.useless_gap   = dpi(3)
-theme.border_width  = dpi(4)
+theme.useless_gap   = dpi(2.5)
+theme.border_width  = dpi(2.5)
 theme.border_normal = "#44475a"
-theme.border_focus  = "#ff6e67"
+theme.border_focus  = "#bd93f9"
 theme.border_marked = "#91231c"
+
+
+theme.taglist_font = "Nerd Hack Font Bold 9"
+
+theme.taglist_fg_focus="#282a36"
+theme.taglist_fg_urgent="#282a36"
+theme.taglist_fg_occupied="#aaaaaa"
+theme.taglist_fg_empty="#aaaaaa"
+
+theme.taglist_bg_focus="#bd93f9"
+theme.taglist_bg_urgent="#ff5555"
+theme.taglist_bg_occupied="#44475a"
+theme.taglist_bg_empty="#282a36"
+--      
+theme.tasklist_font = "Nerd Hack Font Bold 9"
+
+theme.tasklist_bg_normal     = "#aaaaaa"
+theme.tasklist_bg_focus      = "#bd93f9"
+theme.tasklist_bg_urgent     = "#ff5555"
+theme.tasklist_bg_minimize   = "#282a36"
+theme.tasklist_bg_systray    = "#282a36"
+
+theme.tasklist_fg_normal     = "#282a36"
+theme.tasklist_fg_focus      = "#282a36"
+theme.tasklist_fg_urgent     = "#f8f8f2"
+theme.tasklist_fg_minimize   = "#aaaaaa"
 
 -- There are other variable sets
 -- overriding the default one when
@@ -45,12 +71,12 @@ theme.border_marked = "#91231c"
 
 -- Generate taglist squares:
 local taglist_square_size = dpi(4)
-theme.taglist_squares_sel = theme_assets.taglist_squares_sel(
-    taglist_square_size, theme.fg_normal
-)
-theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
-    taglist_square_size, theme.fg_normal
-)
+--theme.taglist_squares_sel = theme_assets.taglist_squares_sel(
+--    taglist_square_size, theme.fg_normal
+--)
+--theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
+--    taglist_square_size, theme.fg_normal
+--)
 
 -- Variables set for theming notifications:
 -- notification_font

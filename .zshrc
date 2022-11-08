@@ -8,7 +8,7 @@ fi
 if [[ -e /usr/share/zsh/manjaro-zsh-prompt ]]; then
   source /usr/share/zsh/manjaro-zsh-prompt
 fi
-#eval "$(starship init zsh)"
+eval "$(starship init zsh)"
 export PATH="/home/deboost/.mybin:$PATH"
 unsetopt correct_all
 
@@ -40,14 +40,15 @@ export PATH="$HOME/.poetry/bin:$PATH"
 export FZF_DEFAULT_COMMAND='rg --hidden -l ""'
 force_color_prompt=yes
 alias vim="nvim"
-#alias j='jupyter qtconsole --style=dracula &'
-alias j='jupyter-lab --ip 192.168.2.33 --port 8888'
+alias j='jupyter qtconsole  --style=dracula &'
 alias pb='fg %+'
 alias pm='python ./main.py'
-alias to_csv='python ~/d/xlsx.py'
+alias to_csv='libreoffice --headless --convert-to csv '
 alias yt='youtube-dl -x --audio-format mp3'
 alias td='vim ~/todo.txt'
 alias dr='docker run --rm -it --entrypoint bash'
 
 #cd ~/d/unknown_name_classification
 #source ~/python_venv/fine_tuning/bin/activate
+alias orange='python -m Orange.canvas'
+

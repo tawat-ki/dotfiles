@@ -21,15 +21,25 @@ local popup_ = awful.popup({
 	},
 	border_color = "#ff6e67",
 	border_width = 4,
-	opacity = 0.96,
-	placement = awful.placement.bottom,
+	opacity = 0.90,
+	placement = awful.placement.bottom_left,
 	shape = gears.shape.rect,
-  --hide_on_right_click = true,
+  hide_on_right_click = true,
 	visible = false,
 	ontop = true,
 })
 local function lily58_th()
-  popup_.visible= not popup_.visible 
+--  awful.spawn.easy_async(
+--    [[bash -c "setxkbmap -query |grep layout| awk '{print($2)}'"]],
+--    function(stdout, stderr, reason, exit_code)
+--      if tostring(stdout):sub(1,-2) == "dvorak" then
+--        popup_.visible=true 
+--      else
+--        popup_.visible=false 
+--      end
+--    end
+--  )
+  popup_.visible=not popup_.visible
 end
 
 local rt = {

@@ -12,7 +12,6 @@
 
 # Change the argument to True to still load settings configured via autoconfig.yml
 config.load_autoconfig(False)
-
 # Time interval (in milliseconds) between auto-saves of
 # config/cookies/etc.
 # Type: Int
@@ -598,64 +597,68 @@ c.colors.tabs.pinned.selected.even.bg = '#748399'
 # font setting, it's replaced with the fonts listed here. If set to an
 # empty value, a system-specific monospace default is used.
 # Type: List of Font, or Font
-c.fonts.default_family = '"Hack Nerd Font Mono"'
+c.fonts.default_family = '"Noto Sans Thai"'
 
 # Font used in the completion widget.
 # Type: Font
-c.fonts.completion.entry = '10pt "Hack Nerd Font Mono"'
+c.fonts.completion.entry = '10pt "Noto Sans Thai"'
 
 # Font used in the completion categories.
 # Type: Font
-c.fonts.completion.category = '10pt "Hack Nerd Font Mono"'
+c.fonts.completion.category = '10pt "Noto Sans Thai"'
 
 # Font used for the context menu. If set to null, the Qt default is
 # used.
 # Type: Font
-c.fonts.contextmenu = '10pt "Hack Nerd Font Mono"'
+c.fonts.contextmenu = '10pt "Noto Sans Thai"'
 
 # Font used for the debugging console.
 # Type: Font
-c.fonts.debug_console = '10pt "Hack Nerd Font Mono"'
+c.fonts.debug_console = '10pt "Noto Sans Thai"'
 
 # Font used for the downloadbar.
 # Type: Font
-c.fonts.downloads = '10pt "Hack Nerd Font Mono"'
+c.fonts.downloads = '10pt "Noto Sans Thai"'
 
 # Font used for the hints.
 # Type: Font
-c.fonts.hints = '10pt "Hack Nerd Font Mono"'
+c.fonts.hints = '10pt "Noto Sans Thai"'
 
 # Font used in the keyhint widget.
 # Type: Font
-c.fonts.keyhint = '10pt "Hack Nerd Font Mono"'
+c.fonts.keyhint = '10pt "Noto Sans Thai"'
 
 # Font used for error messages.
 # Type: Font
-c.fonts.messages.error = '10pt "Hack Nerd Font Mono"'
+c.fonts.messages.error = '10pt "Noto Sans Thai"'
 
 # Font used for info messages.
 # Type: Font
-c.fonts.messages.info = '10pt "Hack Nerd Font Mono"'
+c.fonts.messages.info = '10pt "Noto Sans Thai"'
 
 # Font used for warning messages.
 # Type: Font
-c.fonts.messages.warning = '10pt default_family'
+c.fonts.messages.warning = '10pt Noto Sans Thai'
 
 # Font used for prompts.
 # Type: Font
-c.fonts.prompts = '10pt "Hack Nerd Font Mono"'
+c.fonts.prompts = '10pt "Noto Sans Thai"'
 
 # Font used in the statusbar.
 # Type: Font
-c.fonts.statusbar = '10pt "Hack Nerd Font Mono"'
+c.fonts.statusbar = '10pt "Noto Sans Thai"'
 
 # Font used for selected tabs.
 # Type: Font
-c.fonts.tabs.selected = '10pt default_family'
+c.fonts.tabs.selected = '10pt Noto Sans Thai'
 
 # Font used for unselected tabs.
 # Type: Font
-c.fonts.tabs.unselected = '10pt default_family'
+c.fonts.tabs.unselected = '10pt Noto Sans Thai'
+
+# Font family for standard fonts.
+# Type: Font
+c.fonts.web.family.standard = 'Noto Sans Thai'
 
 # Bindings for normal mode
 config.bind(';0', 'hint link spawn youtube-dl -x {hint-url}')

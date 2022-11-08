@@ -25,6 +25,7 @@ local function show_warning(message)
 		preset = naughty.config.presets.critical,
 		title = "Translate Shell",
 		text = message,
+    timeout=5,
 	})
 end
 local input_widget = wibox({
@@ -62,6 +63,7 @@ local w = awful.popup({
 	ontop = true,
 	bg = beautiful.bg_normal,
 	shape = gears.shape.rect,
+  placement=awful.placement.bottom_right,
 })
 local function launch()
 	local args = user_args or {}
@@ -74,7 +76,6 @@ local function launch()
   end
 	awful.placement.top(input_widget, { margins = { top = 40 }, parent = awful.screen.focused() })
 	input_widget.visible = true
-	awful.placement.bottom_right(w, {margins = { bottom = 30,right =30}, parent = awful.screen.focused()} )
 	awful.prompt.run({
 		prompt = "<b>Translate</b>: ",
 		textbox = prompt.widget,
@@ -86,6 +87,7 @@ local function launch()
 				return
 			end
 			local cmd = "trans en:th -no-init  -no-ansi " .. text 
+			--local cmd = "dict -d wn " .. text 
 			spawn.easy_async(cmd, function(stdout, stderr)
 				if stderr ~= "" then
 					show_warning(stderr)

@@ -13,7 +13,7 @@ local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 local capslock_aA,capslock_aA_timer = awful.widget.watch(config_path .. "/bin/caps", 0.1)
 
 --NR==1 for aspire
-local volume_val,volume_timer= awful.widget.watch([[bash -c "pactl list sinks |grep 'Volume: f'|awk 'NR==2{print($5)}'"]], 10)
+local volume_val,volume_timer= awful.widget.watch([[bash -c "pactl list sinks |grep 'Volume: f'|awk 'NR==2{print($5)}'"]], 1)
 
 local light_val,light_timer= awful.widget.watch([[bash -c "light -G | awk '{printf(\"%.1f%%\"),$1}'"]], 1)
 --local caps_cmd = [[bash -c "cat /sys/class/leds/*::capslock/brightness |awk 'NR==1{printf(\"%d\",$1)} "]]
@@ -32,7 +32,7 @@ local light_val,light_timer= awful.widget.watch([[bash -c "light -G | awk '{prin
 
 local b550_widget = wibox.container({
 	--ethernet_icon,
-	wibox.widget.textbox("ao | "),
+	wibox.widget.textbox(" | "),
 	net_speed_widget(),
 	wibox.widget.textbox("| "),
 	--cpu_icon,
