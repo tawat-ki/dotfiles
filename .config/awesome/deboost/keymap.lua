@@ -44,7 +44,7 @@ local globalkeys = gears.table.join(
 	awful.key({ modkey }, ";", function()
 		awful.spawn.with_line_callback("bash -c 'light -A 2'", {
 			exit = function()
-				d_widget.light_timer:emit_signal("timeout")
+				--d_widget.light_timer:emit_signal("timeout")
 			end,
 		})
 	end, { description = "inc brightness", group = "brightness" }),
@@ -52,7 +52,7 @@ local globalkeys = gears.table.join(
 	awful.key({ modkey, "Shift" }, ";", function()
 		awful.spawn.with_line_callback("bash -c 'light -U 2'", {
 			exit = function()
-				d_widget.light_timer:emit_signal("timeout")
+				--d_widget.light_timer:emit_signal("timeout")
 			end,
 		})
 	end, { description = "dec brightness", group = "brightness" }),
