@@ -80,14 +80,14 @@ local globalkeys = gears.table.join(
 	awful.key({ modkey }, "]", function()
 		awful.spawn.with_line_callback("bash -c 'pamixer -i 3'", {
 			exit = function()
-				d_widget.volume_timer:emit_signal("timeout")
+				--d_widget.volume_timer:emit_signal("timeout")
 			end,
 		})
 	end, { description = "inc volume", group = "audio" }),
 	awful.key({ modkey }, "[", function()
 		awful.spawn.with_line_callback("bash -c 'pamixer -d 3'", {
 			exit = function()
-				d_widget.volume_timer:emit_signal("timeout")
+				--d_widget.volume_timer:emit_signal("timeout")
 			end,
 		})
 	end, { description = "dec volume", group = "audio" }),
