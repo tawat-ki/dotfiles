@@ -6,7 +6,15 @@
 
 config_version: 2
 settings:
-  fonts.web.family.standard:
-    global: Noto Sans Thai
-  fonts.web.size.default:
-    global: 16
+  statusbar.padding:
+    global:
+      bottom: 1
+      left: 8
+      right: 8
+      top: 1
+  tabs.padding:
+    global:
+      bottom: 1
+      left: 8
+      right: 8
+      top: 1

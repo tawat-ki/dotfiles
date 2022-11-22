@@ -193,7 +193,7 @@ awful.screen.connect_for_each_screen(function(s)
 	-- Wallpaper
 	set_wallpaper(s)
 	-- Each screen has its own tag table.
-	awful.tag({ "Main", "TMP", "Awful", "VM", "BG" }, s, awful.layout.layouts[1])
+	awful.tag({ "Main", "TMP", "Awful", "Net", "BG" }, s, awful.layout.layouts[1])
 	-- Create a promptbox for each screen
 	s.mypromptbox = awful.widget.prompt()
 	-- Create an imagebox widget which will contain an icon indicating which layout we're using.
@@ -322,7 +322,8 @@ awful.rules.rules = {
 		properties = {
 			border_width = beautiful.border_width,
 			border_color = beautiful.border_normal,
-			focus = awful.client.focus.filter,
+			--focus = awful.client.focus.filter,
+      focus=false,
 			raise = true,
 			keys = keymap.clientkeys,
 			buttons = clientbuttons,

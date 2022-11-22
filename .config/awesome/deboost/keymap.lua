@@ -1,12 +1,4 @@
 local awful = require("awful")
-local noisy = [[bash -c '
-  for I in $(seq 1 5); do
-    date
-    echo err >&2
-    sleep 2
-  done
-']]
-local is_muted = "init"
 local wibox = require("wibox")
 local naughty = require("naughty")
 local gears = require("gears")
@@ -18,9 +10,11 @@ local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
 local run_shell = require("awesome-wm-widgets.run-shell.run-shell")
 local d_widget = require("deboost.widget")
 local d_trans = require("deboost.translate")
+
 local modkey = "Mod4"
 local alt = "Mod1"
 local lockkey = "Lock"
+local is_muted = "init"
 -- {{{ Mouse bindings
 --root.buttons(gears.table.join(
 --    awful.button({ }, 3, function () mymainmenu:toggle() end),
@@ -33,7 +27,7 @@ local globalkeys = gears.table.join(
 	--mykey
 	--  thai-english
 	awful.key({ modkey }, "space", function()
-		awful.util.spawn(
+		awful.spawn(
 			[[bash -c "(setxkbmap -query | grep -q \"layout:\s\+th\") && setxkbmap dvorak || setxkbmap th"]]
 		)
 		d_popup.lily58_th()
@@ -41,21 +35,21 @@ local globalkeys = gears.table.join(
 	awful.key({ modkey, "Shift" }, "s", function()
 		d_popup.lily58_th()
 	end, { description = "toggle lily58_TH popup", group = "aoeu" }),
-	awful.key({ modkey }, ";", function()
-		awful.spawn.with_line_callback("bash -c 'light -A 2'", {
-			exit = function()
-				--d_widget.light_timer:emit_signal("timeout")
-			end,
-		})
-	end, { description = "inc brightness", group = "brightness" }),
+	--awful.key({ modkey }, ";", function()
+	--	awful.spawn.with_line_callback("bash -c 'light -A 2'", {
+	--		exit = function()
+	--			--d_widget.light_timer:emit_signal("timeout")
+	--		end,
+	--	})
+	--end, { description = "inc brightness", group = "brightness" }),
 
-	awful.key({ modkey, "Shift" }, ";", function()
-		awful.spawn.with_line_callback("bash -c 'light -U 2'", {
-			exit = function()
-				--d_widget.light_timer:emit_signal("timeout")
-			end,
-		})
-	end, { description = "dec brightness", group = "brightness" }),
+	--awful.key({ modkey, "Shift" }, ";", function()
+	--	awful.spawn.with_line_callback("bash -c 'light -U 2'", {
+	--		exit = function()
+	--			--d_widget.light_timer:emit_signal("timeout")
+	--		end,
+	--	})
+	--end, { description = "dec brightness", group = "brightness" }),
 	--  awful.key({}, "Caps_Lock", function()
 	--    --[[bash -c "cat /sys/class/leds/*::capslock/brightness |awk 'NR==1{printf(\"%d\\\n",$1)} "]]
 	--    awful.spawn.easy_async([[bash -c "sleep 1;xset q |awk 'NR==4{print($4)}'"]], function(stdout, stderr, reason, exit_code)
@@ -66,30 +60,28 @@ local globalkeys = gears.table.join(
 		d_trans.launch()
 	end, { description = "popup translate-shell", group = "aoeu" }),
 	awful.key({ modkey }, "e", function()
-		awful.util.spawn("alacritty -e ranger /home/deboost/Documents")
+		awful.spawn("alacritty -e ranger /home/deboost/Documents")
 	end, { description = "ranger", group = "launcher" }),
 	awful.key({ modkey, "Shift" }, "e", function()
-		awful.util.spawn("dolphin")
+		awful.spawn("dolphin")
 	end, { description = "dolphin", group = "launcher" }),
 	awful.key({ modkey }, "b", function()
-		awful.util.spawn("qutebrowser")
+		awful.spawn("qutebrowser")
 	end, { description = "qute-browser", group = "launcher" }),
 	awful.key({ modkey, "Shift" }, "b", function()
-		awful.util.spawn("brave")
+		awful.spawn("brave")
 	end, { description = "brave browser", group = "launcher" }),
 	awful.key({ modkey }, "]", function()
 		awful.spawn.with_line_callback("bash -c 'pamixer -i 3'", {
 			exit = function()
-				--d_widget.volume_timer:emit_signal("timeout")
+				d_widget.volume_timer:emit_signal("timeout")
 			end,
 		})
 	end, { description = "inc volume", group = "audio" }),
 	awful.key({ modkey }, "[", function()
-		awful.spawn.with_line_callback("bash -c 'pamixer -d 3'", {
-			exit = function()
-				--d_widget.volume_timer:emit_signal("timeout")
-			end,
-		})
+		awful.spawn.easy_async("bash -c 'pamixer -d 3'", function(stdout, stderr, exitreason, exitcode)
+			d_widget.volume_timer:emit_signal("timeout")
+		end)
 	end, { description = "dec volume", group = "audio" }),
 	awful.key({ modkey }, "\\", function()
 		awful.spawn("bash -c 'pamixer -t'")
@@ -203,7 +195,7 @@ local globalkeys = gears.table.join(
 	-- Prompt
 	awful.key({ modkey }, "r", function()
 		--awful.screen.focused().mypromptbox:run()
-    run_shell.launch()
+		run_shell.launch()
 	end, { description = "run prompt", group = "launcher" }),
 
 	awful.key({ modkey }, "x", function()
