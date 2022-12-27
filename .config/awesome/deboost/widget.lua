@@ -4,8 +4,8 @@ local awful = require("awful")
 local wibox = require("wibox")
 local gears = require("gears")
 local config_path = gears.filesystem.get_configuration_dir()
---local net_speed_widget = require("awesome-wm-widgets.net-speed-widget.net-speed")
-local net_speed_widget =function()end 
+local net_speed_widget = require("awesome-wm-widgets.net-speed-widget.net-speed")
+--local net_speed_widget =function()end 
 local run_shell = require("awesome-wm-widgets.run-shell.run-shell")
 --local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
 --local ram_widget = require("awesome-wm-widgets.ram-widget.ram-widget")
@@ -34,8 +34,8 @@ local volume_val,volume_timer= awful.widget.watch([[bash -c "pactl list sinks |g
 
 local b550_widget = wibox.container({
 	--ethernet_icon,
---	wibox.widget.textbox(" | "),
---	net_speed_widget(),
+	wibox.widget.textbox(" | "),
+	net_speed_widget(),
 	wibox.widget.textbox("| "),
 	--cpu_icon,
 	wibox.widget.textbox(" "),

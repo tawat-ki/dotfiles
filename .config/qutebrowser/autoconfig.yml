@@ -6,15 +6,5 @@
 
 config_version: 2
 settings:
-  statusbar.padding:
-    global:
-      bottom: 1
-      left: 8
-      right: 8
-      top: 1
-  tabs.padding:
-    global:
-      bottom: 1
-      left: 8
-      right: 8
-      top: 1
+  content.javascript.can_access_clipboard:
+    chat.openai.com: true

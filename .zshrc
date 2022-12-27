@@ -8,23 +8,24 @@ fi
 if [[ -e /usr/share/zsh/manjaro-zsh-prompt ]]; then
   source /usr/share/zsh/manjaro-zsh-prompt
 fi
-eval "$(starship init zsh)"
+#eval "$(starship init zsh)"
 export PATH="/home/deboost/.mybin:$PATH"
 unsetopt correct_all
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-#__conda_setup="$('/home/deboost/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+#__conda_setup="$('/home/deboost/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 #if [ $? -eq 0 ]; then
 #    eval "$__conda_setup"
 #else
-#    if [ -f "/home/deboost/anaconda3/etc/profile.d/conda.sh" ]; then
-#        . "/home/deboost/anaconda3/etc/profile.d/conda.sh"
+#    if [ -f "/home/deboost/miniconda3/etc/profile.d/conda.sh" ]; then
+#        . "/home/deboost/miniconda3/etc/profile.d/conda.sh"
 #    else
-#        export PATH="/home/deboost/anaconda3/bin:$PATH"
+#        export PATH="/home/deboost/miniconda3/bin:$PATH"
 #    fi
 #fi
 #unset __conda_setup
+#
 # <<< conda initialize <<<
 #export WORKON_HOME=~/.virtualenvs
 export EDITOR=nvim
@@ -51,4 +52,23 @@ alias dr='docker run --rm -it --entrypoint bash'
 #cd ~/d/unknown_name_classification
 #source ~/python_venv/fine_tuning/bin/activate
 alias orange='python -m Orange.canvas'
+#source ~/python_venv/recruit/bin/activate 
+#cd ~/d/recruit
+alias confadd='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/awesome &&
+/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/nvim &&
+/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/qutebrowser &&
+/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.themes &&
+/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.jupyter &&
+/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.icons &&
+/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.moc &&
+/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.bashrc &&
+/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.zshrc &&
+/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/picom &&
+/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/rofi &&
+/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/ksnip &&
+/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/alacritty &&
+/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/qt5ct &&
+/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/ranger &&
+/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME add ~/.config/libreoffice &&
+echo done'
 

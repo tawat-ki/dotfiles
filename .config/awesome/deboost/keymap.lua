@@ -10,7 +10,6 @@ local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
 local run_shell = require("awesome-wm-widgets.run-shell.run-shell")
 local d_widget = require("deboost.widget")
 local d_trans = require("deboost.translate")
-
 local modkey = "Mod4"
 local alt = "Mod1"
 local lockkey = "Lock"

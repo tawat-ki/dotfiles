@@ -12,6 +12,8 @@ local gfs = require("gears.filesystem")
 local themes_path = gfs.get_themes_dir()
 
 local theme = {}
+theme.maximized_hide_border = false
+theme.fullscreen_hide_border = true
 theme.font          = "Nerd Hack Font Bold 9"
 theme.bg_normal     = "#282a36"
 theme.bg_focus      = "#bd93f9"

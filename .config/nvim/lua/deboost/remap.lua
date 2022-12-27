@@ -11,11 +11,10 @@ nnoremap("<leader>bb","<cmd>Telescope buffers<cr>")
 nnoremap("<leader>fh","<cmd>Telescope help_tags<cr>")
 nnoremap("<leader>pb","<C-^>")
 --nnoremap("<leader>ww","<cmd>w<CR>")
-nnoremap("<leader>pp","\"ap")
-vnoremap("<leader>yy","\"ay")
-vnoremap("<leader>pp","\"ap")
-nnoremap("<leader>PP","\"aP")
-vnoremap("<leader>PP","\"aP")
+--nnoremap("<leader>P","\"+p")
+--nnoremap("<leader>yy","\"+yy")
+--vnoremap("<leader>P","\"+p")
+--vnoremap("<leader>y","\"+y")
 -->>>jupyter
 
 -->>>jupyter

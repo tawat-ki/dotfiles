@@ -452,15 +452,16 @@ c.colors.statusbar.passthrough.fg = '#ffb86c'
 
 # Background color of the statusbar in passthrough mode.
 # Type: QssColor
+#c.colors.statusbar.passthrough.bg = '#282a36'
 c.colors.statusbar.passthrough.bg = '#282a36'
 
 # Foreground color of the statusbar in private browsing mode.
 # Type: QssColor
-c.colors.statusbar.private.fg = '#e0e0e0'
+c.colors.statusbar.private.fg = '#ffffff'
 
 # Background color of the statusbar in private browsing mode.
 # Type: QssColor
-c.colors.statusbar.private.bg = '#282a36'
+c.colors.statusbar.private.bg = '#000000'
 
 # Foreground color of the statusbar in command mode.
 # Type: QssColor
@@ -665,3 +666,4 @@ config.bind(';0', 'hint link spawn youtube-dl -x {hint-url}')
 config.bind('ps', 'jseval --quiet  document.querySelector("video, audio").playbackRate = parseFloat(prompt("Enter playback speed"))')
 config.bind('x', 'jseval --quiet document.querySelector("video, audio").currentTime +=5')
 config.bind('z', 'jseval --quiet document.querySelector("video, audio").currentTime -=5')
+

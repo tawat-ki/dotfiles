@@ -26,7 +26,7 @@ return require("packer").startup(function(use)
 	use("neovim/nvim-lspconfig")
 	use("hrsh7th/cmp-cmdline")
 	use("mhartington/formatter.nvim")
-
+	use("ThePrimeagen/vim-be-good")
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = function()
