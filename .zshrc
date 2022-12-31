@@ -31,11 +31,11 @@ unsetopt correct_all
 export EDITOR=nvim
 #source ~/.local/bin/virtualenvwrapper.sh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="/home/deboost/.config/rofi/scripts:$PATH"
 
+export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 export PATH="$HOME/.poetry/bin:$PATH"
 export FZF_DEFAULT_COMMAND='rg --hidden -l ""'

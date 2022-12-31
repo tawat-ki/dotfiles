@@ -16,5 +16,4 @@ vim.opt.signcolumn = "yes"
 vim.opt.wrap = false 
 vim.opt.isfname:append("@-@")
 vim.g.mapleader = " "
---vim.g.python3_host_prog = '/home/deboost/python_venv/ml/bin/python'
---vim.g.python3_host_prog = '/home/deboost/python_venv/ml/bin/python'
+vim.g.python3_host_prog = '/home/deboost/python_venv/ml/bin/python'

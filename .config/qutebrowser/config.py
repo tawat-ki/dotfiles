@@ -660,7 +660,9 @@ c.fonts.tabs.unselected = '10pt Noto Sans Thai'
 # Font family for standard fonts.
 # Type: Font
 c.fonts.web.family.standard = 'Noto Sans Thai'
-
+#c.completion.web_history.max_items=4
+c.completion.open_categories=['history']
+c.completion.height='20%'
 # Bindings for normal mode
 config.bind(';0', 'hint link spawn youtube-dl -x {hint-url}')
 config.bind('ps', 'jseval --quiet  document.querySelector("video, audio").playbackRate = parseFloat(prompt("Enter playback speed"))')

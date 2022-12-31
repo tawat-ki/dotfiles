@@ -59,7 +59,7 @@ local globalkeys = gears.table.join(
 		d_trans.launch()
 	end, { description = "popup translate-shell", group = "aoeu" }),
 	awful.key({ modkey }, "e", function()
-		awful.spawn("alacritty -e ranger /home/deboost/Documents")
+		awful.spawn("alacritty -e ranger")
 	end, { description = "ranger", group = "launcher" }),
 	awful.key({ modkey, "Shift" }, "e", function()
 		awful.spawn("dolphin")
@@ -207,7 +207,7 @@ local globalkeys = gears.table.join(
 	end, { description = "lua execute prompt", group = "awesome" }),
 	-- Menubar
 	awful.key({ modkey }, "p", function()
-		awful.spawn([[launcher_t4]])
+		awful.spawn(config_path .. "../rofi/scripts/launcher_t4")
 		--menubar.show()
 	end, { description = "show the menubar", group = "launcher" })
 )
