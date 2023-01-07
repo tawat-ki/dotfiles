@@ -38,3 +38,8 @@ vnoremap("<leader>e"," <Plug>JupyterRunVisual",{ silent = true})
 nnoremap ("<leader>b","<cmd>PythonSetBreak<CR>",{ silent = true})
 --<<<jupyter
 vim.api.nvim_set_keymap('n', '<leader>b', ":lua require('deboost/telescope').my_buffer()<cr>", {noremap = true})
+
+
+
+nnoremap("<leader>x","<cmd>JupyterExecute<cr>")
+nnoremap("<leader>X","<cmd>JupyterExecuteAll<cr>")

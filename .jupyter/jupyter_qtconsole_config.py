@@ -268,7 +268,7 @@ c = get_config()  # noqa
 
 ## Start the console window with the menu bar hidden.
 #  Default: False
-# c.JupyterQtConsoleApp.hide_menubar = False
+c.JupyterQtConsoleApp.hide_menubar = True
 
 ## set the iopub (PUB) port [default: random]
 #  See also: ConnectionFileMixin.iopub_port
@@ -444,7 +444,7 @@ c.ConsoleWidget.include_other_output = True
 ## The visibility of the scrollar. If False then the scrollbar will be
 #          invisible.
 #  Default: True
-# c.ConsoleWidget.scrollbar_visibility = True
+c.ConsoleWidget.scrollbar_visibility = False
 
 #------------------------------------------------------------------------------
 # HistoryConsoleWidget(ConsoleWidget) configuration

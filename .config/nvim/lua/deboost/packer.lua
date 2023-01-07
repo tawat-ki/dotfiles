@@ -27,6 +27,7 @@ return require("packer").startup(function(use)
 	use("hrsh7th/cmp-cmdline")
 	use("mhartington/formatter.nvim")
 	use("ThePrimeagen/vim-be-good")
+	use("untitled-ai/jupyter_ascending.vim")
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = function()
@@ -39,4 +40,5 @@ return require("packer").startup(function(use)
     run = function() vim.fn["mkdp#util#install"]() end,
   })
   use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+  
 end)
