@@ -41,7 +41,7 @@ export PATH="$HOME/.poetry/bin:$PATH"
 export FZF_DEFAULT_COMMAND='rg --hidden -l ""'
 force_color_prompt=yes
 alias vim="nvim"
-alias j='jupyter qtconsole  --style=dracula &'
+alias j='jupyter qtconsole  --style=paraiso-light &'
 alias pb='fg %+'
 alias pm='python ./main.py'
 alias to_csv='libreoffice --headless --convert-to csv '

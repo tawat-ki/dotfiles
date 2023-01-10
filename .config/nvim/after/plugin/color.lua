@@ -8,6 +8,10 @@ autocmd ColorScheme * highlight IndentBlanklineContextChar guifg=#00FF00 gui=noc
 autocmd ColorScheme * highlight IndentBlanklineSpaceChar guifg=#485478 gui=nocombine
 autocmd ColorScheme * highlight IndentBlanklineChar guifg=#485478 gui=nocombine
 autocmd ColorScheme * highlight NonText ctermfg=7 guifg=#485478
+autocmd ColorScheme * highlight MatchParen ctermbg=blue  guibg=#cf2d4b 
+autocmd ColorScheme * highlight MatchParen ctermbg=blue  guibg=#cf2d4b 
+autocmd ColorScheme * highlight IndentBlanklineContextStart  cterm=underline gui=italic,bold guisp=#ffff60
+autocmd ColorScheme * highlight JupyterCell cterm=bold ctermfg=255 ctermbg=22 gui=bold guifg=#6272a4 guibg=#eef0d8
 augroup end
 ]])
 -- customize dracula color palette
