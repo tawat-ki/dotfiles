@@ -442,19 +442,26 @@ end)
 client.connect_signal("unfocus", function(c)
 	c.border_color = beautiful.border_normal
 end)
+-- }}}
+--
 require("deboost.spawn_prog")
-
 function naughty.config.notify_callback(args)
-  --naughty.notify({text="aoeu"})
-  --if args.preset == naughty.config.presets.critical then
-  --  debug_alacritty("not crit")
-  --else
-  --  debug_alacritty("crit\n"..args.text .."\n" .. args.title .. "\n")
-  --  debug_alacritty(args.presets.normal)
-  --end
   awful.spawn("paplay " .. config_path .."bin/tuturu.mp3")
-  --
-  --debug_alacritty("paplay " .. config_path .."bin/noti.mp3")
   return args
 end
--- }}}
+gears.timer {
+    timeout   = 1200,
+    call_now  = false,
+    autostart = true,
+    callback  = function()
+    awful.spawn( "notify-send -u critical -t 3600000  'Take an eyes break!!!'")
+    end
+}
+gears.timer {
+    timeout   = 3600,
+    call_now  = false,
+    autostart = true,
+    callback  = function()
+    awful.spawn( "notify-send -u critical  -t 5000 'Stay hydrated!!'")
+    end
+}
