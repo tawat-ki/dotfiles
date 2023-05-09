@@ -1,3 +1,4 @@
+
 # Use powerline
 #eval "$(starship init zsh)"
 USE_POWERLINE="false"
@@ -84,3 +85,8 @@ unset __conda_setup
 alias DH='xrandr --output HDMI-0 --mode 1920x1080 --pos 1920x0 --rotate left --output DP-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1 --off --output DP-2 --off --output DP-3 --off --output DP-4 --off --output DP-5 --off'
 alias HD='xrandr --output HDMI-0 --mode 1920x1080 --pos 0x0 --rotate left --output DP-0 --primary --mode 1920x1080 --pos 1080x0 --rotate normal --output DP-1 --off --output DP-2 --off --output DP-3 --off --output DP-4 --off --output DP-5 --off'
 alias D='xrandr --output HDMI-0 --off --output DP-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1 --off --output DP-2 --off --output DP-3 --off --output DP-4 --off --output DP-5 --off'
+alias mv='mv -v'
+alias mv='cp -v'
+
+# Enable vi mode
+bindkey -v
