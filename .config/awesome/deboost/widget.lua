@@ -24,7 +24,8 @@ local cpu_section = wibox.container({
 	cpu_widget(),
 	wibox.widget.textbox(" "),
 	awful.widget.watch(
-		[[bash -c "cat /sys/class/thermal/thermal_zone*/temp |awk NR==1'{printf(\"%.1f°C\",$0/1000)}' "]],
+  --[[bash -c "cat /sys/class/thermal/thermal_zone*/temp |awk NR==1'{printf(\"%.1f°C\",$0/1000)}' "]]
+    [[bash -c "cat /sys/devices/*/*/*/*/temp*_input |awk NR==1'{printf(\"%.1f°C\",$0/1000)}' "]],
 		1
 	),
 	wibox.widget.textbox(" | "),

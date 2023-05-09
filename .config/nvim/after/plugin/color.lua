@@ -8,6 +8,7 @@ autocmd ColorScheme * highlight IndentBlanklineContextChar guifg=#00FF00 gui=noc
 autocmd ColorScheme * highlight IndentBlanklineSpaceChar guifg=#485478 gui=nocombine
 autocmd ColorScheme * highlight IndentBlanklineChar guifg=#485478 gui=nocombine
 autocmd ColorScheme * highlight NonText ctermfg=7 guifg=#485478
+autocmd ColorScheme * highlight IndentBlanklineContextStart cterm=underline gui=underline guisp=#00FF00 
 augroup end
 ]])
 require('lualine').setup {

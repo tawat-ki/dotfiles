@@ -669,3 +669,6 @@ config.bind('z', 'jseval --quiet document.querySelector("video, audio").currentT
 c.new_instance_open_target='window'
 c.completion.open_categories=["searchengines", "quickmarks","bookmarks","filesystem","history",]
 #c.completion.web_history.max_items=10
+
+# might help error 133
+c.qt.workarounds.remove_service_workers=True
