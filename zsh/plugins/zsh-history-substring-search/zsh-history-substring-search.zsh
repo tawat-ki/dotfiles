@@ -43,7 +43,9 @@
 # declare global configuration variables
 #-----------------------------------------------------------------------------
 
-typeset -g HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=magenta,fg=white,bold'
+#typeset -g HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=magenta,fg=white,bold'
+#typeset -g HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=red,fg=white,bold'
+typeset -g HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bg=green,fg=black,bold'
 typeset -g HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=red,fg=white,bold'
 typeset -g HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS='i'
 typeset -g HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=''
