@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/deboost/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/home/deboost/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/home/deboost/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/home/deboost/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/deboost/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
+local package_path_str = "/home/tawat-ki/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/home/tawat-ki/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/home/tawat-ki/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/home/tawat-ki/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/tawat-ki/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -76,73 +76,73 @@ time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   ["dracula.nvim"] = {
     loaded = true,
-    path = "/home/deboost/.local/share/nvim/site/pack/packer/start/dracula.nvim",
+    path = "/home/tawat-ki/.local/share/nvim/site/pack/packer/start/dracula.nvim",
     url = "https://github.com/Mofiqul/dracula.nvim"
   },
   ["formatter.nvim"] = {
     loaded = true,
-    path = "/home/deboost/.local/share/nvim/site/pack/packer/start/formatter.nvim",
+    path = "/home/tawat-ki/.local/share/nvim/site/pack/packer/start/formatter.nvim",
     url = "https://github.com/mhartington/formatter.nvim"
   },
   ["indent-blankline.nvim"] = {
     loaded = true,
-    path = "/home/deboost/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
+    path = "/home/tawat-ki/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
   ["jupyter_ascending.vim"] = {
     loaded = true,
-    path = "/home/deboost/.local/share/nvim/site/pack/packer/start/jupyter_ascending.vim",
+    path = "/home/tawat-ki/.local/share/nvim/site/pack/packer/start/jupyter_ascending.vim",
     url = "https://github.com/untitled-ai/jupyter_ascending.vim"
   },
   ["lualine.nvim"] = {
     loaded = true,
-    path = "/home/deboost/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    path = "/home/tawat-ki/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
   ["markdown-preview.nvim"] = {
     loaded = true,
-    path = "/home/deboost/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
+    path = "/home/tawat-ki/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
     url = "https://github.com/iamcco/markdown-preview.nvim"
   },
   ["nvim-colorizer.lua"] = {
     loaded = true,
-    path = "/home/deboost/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
+    path = "/home/tawat-ki/.local/share/nvim/site/pack/packer/start/nvim-colorizer.lua",
     url = "https://github.com/norcalli/nvim-colorizer.lua"
   },
   ["nvim-treesitter"] = {
     loaded = true,
-    path = "/home/deboost/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    path = "/home/tawat-ki/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-treesitter-context"] = {
     loaded = true,
-    path = "/home/deboost/.local/share/nvim/site/pack/packer/start/nvim-treesitter-context",
+    path = "/home/tawat-ki/.local/share/nvim/site/pack/packer/start/nvim-treesitter-context",
     url = "https://github.com/nvim-treesitter/nvim-treesitter-context"
   },
   ["nvim-web-devicons"] = {
     loaded = false,
     needs_bufread = false,
-    path = "/home/deboost/.local/share/nvim/site/pack/packer/opt/nvim-web-devicons",
+    path = "/home/tawat-ki/.local/share/nvim/site/pack/packer/opt/nvim-web-devicons",
     url = "https://github.com/kyazdani42/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
-    path = "/home/deboost/.local/share/nvim/site/pack/packer/start/packer.nvim",
+    path = "/home/tawat-ki/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
   ["plenary.nvim"] = {
     loaded = true,
-    path = "/home/deboost/.local/share/nvim/site/pack/packer/start/plenary.nvim",
+    path = "/home/tawat-ki/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
-    path = "/home/deboost/.local/share/nvim/site/pack/packer/start/telescope.nvim",
+    path = "/home/tawat-ki/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
   ["vim-be-good"] = {
     loaded = true,
-    path = "/home/deboost/.local/share/nvim/site/pack/packer/start/vim-be-good",
+    path = "/home/tawat-ki/.local/share/nvim/site/pack/packer/start/vim-be-good",
     url = "https://github.com/ThePrimeagen/vim-be-good"
   }
 }

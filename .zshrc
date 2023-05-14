@@ -14,7 +14,7 @@ export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-export PATH="/home/deboost/.mybin:$PATH"
+export PATH="$HOME/.mybin:$PATH"
 export EDITOR=nvim
 export FZF_DEFAULT_COMMAND='rg --hidden -l ""'
 unsetopt correct_all

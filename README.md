@@ -10,12 +10,12 @@ ln -s ~/dotfiles/.config/awesome ~/.config/awesome
 ln -s ~/dotfiles/.config/picom ~/.config/picom
 ln -s ~/dotfiles/.config/kitty ~/.config/kitty
 ln -s ~/dotfiles/.config/qutebrowser ~/.config/qutebrowser
-ln -s ~/dotfiles/.fonts ~/.config/.fonts
-ln -s ~/dotfiles/.zshrc ~/.config/.zshrc
-ln -s ~/dotfiles/.icons ~/.config/.icons
-ln -s ~/dotfiles/.moc ~/.config/.moc
-ln -s ~/dotfiles/.themes ~/.config/.themes
-ln -s ~/dotfiles/.jupyter ~/.config/.jupyter
+ln -s ~/dotfiles/.fonts ~/.fonts
+ln -s ~/dotfiles/.zshrc ~/.zshrc
+ln -s ~/dotfiles/.icons ~/.icons
+ln -s ~/dotfiles/.moc ~/.moc
+ln -s ~/dotfiles/.themes ~/.themes
+ln -s ~/dotfiles/.jupyter ~/.jupyter
 ln -s ~/dotfiles/.Xresources ~/.Xresources
 ln -s ~/dotfiles/.xinitrc ~/.xinitrc
 ```
