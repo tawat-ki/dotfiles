@@ -57,10 +57,26 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 # Enable vi mode
-#bindkey -v
-#function vi-yank-xclip {
-#    zle vi-yank
-#   echo -n "$BUFFER" | xclip -sel c
-#}
-#zle -N vi-yank-xclip
-#bindkey -M vicmd 'y' vi-yank-xclip
+bindkey -v
+function vi-yank-xclip {
+    zle vi-yank
+   echo -n "$BUFFER" | xclip -sel c
+}
+zle -N vi-yank-xclip
+bindkey -M vicmd 'y' vi-yank-xclip
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+#bindkey -r "^["
+bindkey -r "^[OA" 
+bindkey -r "^[OB"
+bindkey -r "^[OC"
+bindkey -r "^[OD"
+bindkey -r "^[OF"
+bindkey -r "^[OH"
+bindkey -r "^[[200~"
+bindkey -r "^[[2~"
+bindkey -r "^[[3~"
+bindkey -r "^[[A" 
+bindkey -r "^[[B" 
+bindkey -r "^[[C" 
+bindkey -r "^[[D" 
