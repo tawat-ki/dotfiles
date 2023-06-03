@@ -61,6 +61,7 @@ local w = awful.popup({
 	border_width = 2,
   opacity=0.9,
 	ontop = true,
+	screen = mouse.screen,
 	bg = beautiful.bg_normal,
 	shape = gears.shape.rect,
 })
@@ -126,7 +127,7 @@ local function launch()
 					margins = 2,
 					widget = wibox.container.margin,
 				})
-        awful.placement.top_right(w, { margins = { top = 40 }, parent = awful.screen.focused() })
+        awful.placement.top_left(w, { margins = { top = 40 }, parent = awful.screen.focused() })
         --awful.placement.top(input_widget, { margins = { top = 40 }, parent = awful.screen.focused() })
 				w.visible = true
 				w:buttons(awful.util.table.join(

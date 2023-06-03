@@ -75,11 +75,17 @@ local globalkeys = gears.table.join(
 	end, { description = "brave browser", group = "launcher" }),
 	awful.key({ modkey }, "]", function()
     --volume_widget:inc(5)
-		awful.spawn.with_line_callback("bash -c 'amixer -D pulse sset Master 2%+'", {
-			exit = function()
-				--d_widget.volume_timer:emit_signal("timeout")
-			end,
-		})
+		awful.spawn.easy_async([[bash -c "amixer -D pulse sget Master |grep Left:|awk '{printf\"%.2f\",substr($5,2,length($5)-3)}'"]], function(stdout, stderr, exitreason, exitcode)
+      if tonumber(stdout) <40 then
+        awful.spawn.with_line_callback("bash -c 'amixer -D pulse sset Master 2%+'", {
+          exit = function()
+            --d_widget.volume_timer:emit_signal("timeout")
+          end,
+        })
+      else
+        naughty.notify({text="maxed"})
+      end
+    end)
 	end, { description = "inc volume", group = "audio" }),
 	awful.key({ modkey }, "[", function()
     --volume_widget:dec(5)

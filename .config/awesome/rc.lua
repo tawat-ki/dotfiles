@@ -19,11 +19,10 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 -- for debug
-function debug_alacritty(s)
-	local buff_str = " alacritty -e bash -c 'echo \"" .. tostring(s) .. "\" & sleep 1h'"
+function debug_terminal(s)
+	local buff_str = " kitty -e bash -c 'echo \"" .. tostring(s) .. "\" & sleep 1h'"
 	awful.util.spawn(buff_str)
 end
-print = debug_alacritty
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -216,7 +215,7 @@ awful.screen.connect_for_each_screen(function(s)
 		screen = s,
 		filter = awful.widget.taglist.filter.all,
 		buttons = taglist_buttons,
-    
+
 	})
 	-- Create a tasklist widget
 	s.mytasklist = awful.widget.tasklist({
@@ -245,13 +244,14 @@ awful.screen.connect_for_each_screen(function(s)
         layout  = wibox.layout.flex.horizontal
         --force_width=30,
         --layout  =wibox.layout.fixed.horizontal
-    }, 
+    },
 	})
 	-- Create the wibox
 	s.mywibox = awful.wibar({ position = "top", screen = s ,height=17})
 	-- Add widgets to the wibox
   if s.index==1 then
     set_wallpaper(s)
+		gears.wallpaper.maximized(config_path.."pic/wallpaper/base.png", s, true)
     s.mywibox:setup({
       layout = wibox.layout.align.horizontal,
       { -- Left widgets
@@ -439,27 +439,99 @@ client.connect_signal("unfocus", function(c)
 	c.border_color = beautiful.border_normal
 end)
 -- }}}
-function naughty.config.notify_callback(args)
-  --awful.spawn("mpg123 " .. config_path .. "bin/tuturu.mp3")
-  return args
+local specialChars = {
+  [' '] = '[SPACE]',
+  ['!'] = '[EXCLAMATION_MARK]',
+  ['"'] = '[DOUBLE_QUOTE]',
+  ['#'] = '[HASH]',
+  ['$'] = '[DOLLAR]',
+  ['%'] = '[PERCENT]',
+  ['&'] = '[AMPERSAND]',
+  ["'"] = '[SINGLE_QUOTE]',
+  ['('] = '[LEFT_PARENTHESIS]',
+  [')'] = '[RIGHT_PARENTHESIS]',
+  ['*'] = '[ASTERISK]',
+  ['+'] = '[PLUS]',
+  [','] = '[COMMA[',
+  ['-'] = '[HYPHEN]',
+  ['.'] = '[PERIOD]',
+  ['/'] = '[SLASH]',
+  [':'] = '[COLON]',
+  [';'] = '[SEMICOLON]',
+  ['<'] = '[LESS_THAN]',
+  ['='] = '[EQUALS]',
+  ['>'] = '[GREATER_THAN]',
+  ['?'] = '[QUESTION_MARK]',
+  ['@'] = '[AT]',
+  ['['] = '[LEFT_BRACKET]',
+  [']'] = '[RIGHT_BRACKET]',
+  ['\\'] ='[BACKSLASH]',
+  ['^'] = '[CARET]',
+  ['_'] = '[UNDERSCORE]',
+  ['`'] = '[BACKTICK]',
+  ['{'] = '[LEFT_BRACE]',
+  ['|'] = '[PIPE]',
+  ['}'] = '[RIGHT_BRACE]',
+  ['~'] = '[TILDE]',
+}
+function dump(o)
+   if type(o) == 'table' then
+      local s = '{ '
+      for k,v in pairs(o) do
+         if type(k) ~= 'number' then k = '"'..k..'"' end
+         s = s .. '['..k..'] = ' .. dump(v) .. ',\n'
+      end
+      return s .. '} '
+   else
+      if type(o)== "string" then
+        return (tostring(o):gsub('[^%a]', function(char)
+          local charName = specialChars[char]
+          return charName or "[IDK]" end))
+      elseif  type(o)=="number" then
+        return tostring(o)
+      --else
+      --  return "IDK what it is"
+      end
+      return "__"..type(o).."__"
+   end
 end
---gears.timer({
---  timeout = 1200,
---  call_now = true,
---  autostart = true,
---  callback = function()
---    awful.spawn("notify-send -u critical -t 5000  'Take an eyes break!!!'")
---    gears.timer({
---      timeout = 21,
---      call_now = false,
---      autostart = true,
---      single_shot = true,
---      callback = function()
---        awful.spawn("notify-send -u critical -t 1000  '!!!'")
---      end,
---    })
---  end,
---})
+print=debug_terminal
+function naughty.config.notify_callback(args)
+  dump_args=dump(args)
+  log_str="normal:"..dump_args.."\n----------------------------------------\n"
+  awful.spawn("bash -c 'echo \""..log_str.. "\" >> naughty.log'")
+  if args.appname == "teams-for-linux" or args.appname=="notify-send" then
+    awful.spawn("mpg123 " .. config_path .. "bin/tuturu.mp3")
+    if not string.find(args.text,"!!!") then
+      args.timeout=0
+      args.preset.timeout=0
+    end
+	end
+  dump_args=dump(args)
+  log_str="modified:"..dump_args.."\n========================================\n"
+  awful.spawn("bash -c 'echo \""..log_str.. "\" >> naughty.log'")
+  --sep between log
+  --awful.spawn("bash -c 'echo \"manual  :"..args.preset.timeout..","..args.timeout.. "\" >> naughty.log'")
+	return args
+end
+
+gears.timer({
+  timeout = 1200,
+  call_now = true,
+  autostart = true,
+  callback = function()
+    awful.spawn("notify-send -u critical -t 5000  'Take an eyes break!!!'")
+    gears.timer({
+      timeout = 21,
+      call_now = false,
+      autostart = true,
+      single_shot = true,
+      callback = function()
+        awful.spawn("notify-send -u critical -t 1000  '!!!'")
+      end,
+    })
+  end,
+})
 --gears.timer({
 --  timeout = 3600,
 --  call_now = false,

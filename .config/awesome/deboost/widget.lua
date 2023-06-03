@@ -11,7 +11,7 @@ local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
 local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 local capslock_aA, capslock_aA_timer = awful.widget.watch(config_path .. "/bin/caps", 0.5)
 local volume_val, volume_timer =
-	awful.widget.watch([[bash -c "amixer -D pulse sget Master |grep Left:|awk '{print(\"\"),substr($5,2,3)}'"]], 1)
+	awful.widget.watch([[bash -c "amixer -D pulse sget Master |grep Left:|awk '{printf\"%.2f\",substr($5,2,length($5)-3)}'"]], 1)
 
 local net_section = wibox.container({
 	awful.widget.watch([[bash -c "iwgetid -r"]]),
@@ -20,26 +20,26 @@ local net_section = wibox.container({
 	layout = wibox.layout.fixed.horizontal,
 })
 local cpu_section = wibox.container({
-	icon.cpu_text,
+	icon.coloredText("CPU"),
 	cpu_widget(),
 	wibox.widget.textbox(" "),
 	awful.widget.watch(
   --[[bash -c "cat /sys/class/thermal/thermal_zone*/temp |awk NR==1'{printf(\"%.1f°C\",$0/1000)}' "]]
     [[bash -c "cat /sys/devices/*/*/*/*/temp*_input |awk NR==1'{printf(\"%.1f°C\",$0/1000)}' "]],
-		1
+		w1
 	),
 	wibox.widget.textbox(" | "),
 	layout = wibox.layout.fixed.horizontal,
 })
 local ram_section = wibox.container({
 	--ram_icon,
-	icon.ram_text,
+	icon.coloredText("RAM"),
 	awful.widget.watch([[bash -c "free | grep Mem |awk '{printf(\" %.1f%%\",$3/$2*100)}'"]], 1),
 	wibox.widget.textbox(" | "),
 	layout = wibox.layout.fixed.horizontal,
 })
 local gpu_section = wibox.container({
-	icon.gpu_text,
+	icon.coloredText("GPU"),
 	wibox.widget.textbox(" "),
 	awful.widget.watch(
 		[[bash -c "nvidia-settings -q GPUUtilization  |grep memory |awk 'NR==1{printf(\"%0.1f%%\",substr($4,10))}'"]],
@@ -50,7 +50,7 @@ local gpu_section = wibox.container({
 		4
 	),
 	wibox.widget.textbox(" "),
-	icon.vram_text,
+	icon.coloredText("VRAM"),
 	wibox.widget.textbox(" "),
 	awful.widget.watch(
 		[[bash -c "nvidia-settings -q [gpu:0]/useddedicatedgpumemory  |grep B550 |awk '{printf(\"%0.1f%%\",substr($4,1,length($4)-1)/80)}'"]],

@@ -5,6 +5,15 @@ local volume = wibox.widget.textbox("󰕾")
 volume.font = "Hack 12"
 local sun = wibox.widget.textbox("盛")
 sun.font = "Hack 12"
+
+local function coloredText(text,color)
+  color = color or '#bd93f9' 
+  local text_widget = wibox.widget({
+    markup = "<span foreground='".. color.."'><b>" .. text .. "</b></span>",
+    widget = wibox.widget.textbox,
+  })
+  return text_widget
+end
 local ret = {
   volume=volume,
   sun=sun,
@@ -33,21 +42,6 @@ local ret = {
 		resize = true,
 		widget = wibox.widget.imagebox,
 	}),
-	cpu_text = wibox.widget({
-		markup = "<span foreground='#bd93f9'><b>CPU</b></span>",
-		widget = wibox.widget.textbox,
-	}),
-	gpu_text = wibox.widget({
-		markup = "<span foreground='#bd93f9'><b>GPU</b></span>",
-		widget = wibox.widget.textbox,
-	}),
-	ram_text = wibox.widget({
-		markup = "<span foreground='#bd93f9'><b>RAM</b></span>",
-		widget = wibox.widget.textbox,
-	}),
-	vram_text = wibox.widget({
-		markup = "<span foreground='#bd93f9'><b>VRAM</b></span>",
-		widget = wibox.widget.textbox,
-	}),
+  coloredText=coloredText,
 }
 return ret

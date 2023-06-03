@@ -21,5 +21,5 @@ vim.g.mapleader = " "
 vim.g.python3_host_prog = '$HOME/python_venv/main/bin/python'
 vim.cmd([[
 autocmd CursorMoved * exe exists("HlUnderCursor")?HlUnderCursor?printf('match IncSearch /\V\<%s\>/', escape(expand('<cword>'), '/\')):'match none':""
-let HlUnderCursor=0
+let HlUnderCursor=1
 ]])

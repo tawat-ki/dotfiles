@@ -85,8 +85,8 @@ local taglist_square_size = dpi(4)
 -- notification_[bg|fg]
 -- notification_[width|height|margin]
 -- notification_[border_color|border_width|shape|opacity]
-theme.notification_max_width =dpi(350)
-theme.notification_max_height = dpi(150)
+theme.notification_max_width =dpi(450)
+theme.notification_max_height = dpi(250)
 --https://www.reddit.com/r/awesomewm/comments/i39ex8/fine_control_over_naughty_notifications/
 local naughty = require("naughty")
 local nconf = naughty.config
@@ -94,12 +94,13 @@ nconf.defaults.border_width = 0
 nconf.defaults.margin = 8 
 nconf.defaults.text = "Boo!"
 nconf.defaults.timeout = 3
+nconf.defaults.ontop=true
 nconf.padding = 8
 nconf.presets.critical.bg = "#ff6e67"
 nconf.presets.critical.fg = "#fefefa"
 nconf.presets.low.bg = "#44475a"
 nconf.presets.normal.bg = "#44475a"
-nconf.defaults.icon_size = 128 
+nconf.defaults.icon_size = 64
 nconf.spacing = 8
 theme.notification_font = "Hack 12.5"
 -- Variables set for theming the menu:
@@ -143,7 +144,7 @@ theme.titlebar_maximized_button_focus_active  = themes_path.."default/titlebar/m
 
 --theme.wallpaper = themes_path.."default/background.png"
 
-theme.wallpaper = config_path .. "/pic/wallpaper/drow.png"
+--theme.wallpaper = config_path .. "/pic/wallpaper/drow.png"
 
 -- You can use your own layout icons like this:
 theme.layout_fairh = themes_path.."default/layouts/fairhw.png"
