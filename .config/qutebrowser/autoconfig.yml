@@ -6,5 +6,5 @@
 
 config_version: 2
 settings:
-  colors.completion.category.fg:
-    global: '#ff79c6'
+  content.javascript.can_access_clipboard:
+    chat.openai.com: true

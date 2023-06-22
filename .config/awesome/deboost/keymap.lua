@@ -198,7 +198,7 @@ local globalkeys = gears.table.join(
 		awful.layout.inc(-1)
 	end, { description = "select previous", group = "layout" }),
 
-	awful.key({ modkey, "Control" }, "n", function()
+	awful.key({ modkey, "Shift" }, "n", function()
 		local c = awful.client.restore()
 		-- Focus restored client
 		if c then
@@ -287,8 +287,13 @@ for i = 1, 9 do
 			local screen = awful.screen.focused()
 			local tag = screen.tags[i]
 			if tag then
-				awful.tag.viewtoggle(tag)
+				tag:view_only()
 			end
+			--local screen = awful.screen.focused()
+			--local tag = screen.tags[i]
+			--if tag then
+			--	awful.tag.viewtoggle(tag)
+			--end
 		end, { description = "toggle tag #" .. i, group = "tag" }),
 		-- Move client to tag.
 		awful.key({ modkey, "Shift" }, "#" .. i + 9, function()

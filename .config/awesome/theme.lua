@@ -28,9 +28,14 @@ theme.fg_minimize   = "#aaaaaa"
 
 theme.useless_gap   = dpi(2.5)
 theme.border_width  = dpi(2.5)
+theme.border_marked = "#50fa7b"
 theme.border_normal = "#44475a"
 theme.border_focus  = "#bd93f9"
-theme.border_marked = "#91231c"
+--theme.border_normal = "#bd93f9"
+--theme.border_focus  = "#ff6e67"
+--theme.border_focus  = "#FAA0A0"
+--theme.border_focus  = "#ff9e99"
+--theme.border_focus  = "#ff8680"
 
 
 theme.taglist_font = "Hack Bold 9"

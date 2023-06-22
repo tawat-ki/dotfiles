@@ -190,7 +190,6 @@ screen.connect_signal("property::geometry", set_wallpaper)
 local my_widget = require("deboost.widget")
 awful.screen.connect_for_each_screen(function(s)
 	-- Each screen has its own tag table.
-	awful.tag({ "Main", "TMP", "Awful", "Net", "BG" }, s, awful.layout.layouts[1])
 	-- Create a promptbox for each screen
 	s.mypromptbox = awful.widget.prompt()
 	-- Create an imagebox widget which will contain an icon indicating which layout we're using.
@@ -268,7 +267,10 @@ awful.screen.connect_for_each_screen(function(s)
         s.mylayoutbox,
       },
     })
+    awful.tag({ "Main", "Virt.","Data", "Res.", "Awful"}, s, awful.layout.layouts[1])
+
   else
+    awful.tag({ "Code", "R&D","Notes", "IDK", "Awful"}, s, awful.layout.layouts[1])
 		gears.wallpaper.maximized(config_path.."pic/wallpaper/base-vertical.png", s, true)
     s.mywibox:setup({
       layout = wibox.layout.align.horizontal,
@@ -500,7 +502,13 @@ function naughty.config.notify_callback(args)
   dump_args=dump(args)
   log_str="normal:"..dump_args.."\n----------------------------------------\n"
   awful.spawn("bash -c 'echo \""..log_str.. "\" >> naughty.log'")
-  if args.appname == "teams-for-linux" or args.appname=="notify-send" then
+  if args.appname == "teams-for-linux" then
+    debug_terminal("notify from teams;try change timeout")
+    args.timeout=0
+    args.preset.timeout=0
+    args.position="top_middle"
+  end
+  if args.appname=="notify-send" then
     awful.spawn("mpg123 " .. config_path .. "bin/tuturu.mp3")
     if not string.find(args.text,"!!!") then
       args.timeout=0

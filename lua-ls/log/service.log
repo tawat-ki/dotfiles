@@ -1,0 +1,27 @@
+[01:36:00.117][info] [#0:/home/tawat-ki/lua/main.lua:66]: Lua Lsp startup, root: 	/home/tawat-ki/lua
+[01:36:00.117][info] [#0:/home/tawat-ki/lua/main.lua:67]: ROOT:	/home/tawat-ki/lua
+[01:36:00.117][info] [#0:/home/tawat-ki/lua/main.lua:68]: LOGPATH:	/home/tawat-ki/lua/log
+[01:36:00.117][info] [#0:/home/tawat-ki/lua/main.lua:69]: METAPATH:	/home/tawat-ki/lua/meta
+[01:36:00.117][info] [#0:/home/tawat-ki/lua/main.lua:70]: VERSION:	3.6.21
+[01:36:00.134][info] [#0:script/service/service.lua:144]: 
+========= Medical Examination Report =========
+    --------------- Memory ---------------
+        Total: 2.120 MB
+        # 00 : 2.120 MB
+        # 01 : 0.000 MB
+        # 02 : 0.000 MB
+        # 03 : 0.000 MB
+        # 04 : 0.000 MB
+    --------------- Coroutine ---------------
+        Total:     0
+        Running:   0
+        Suspended: 0
+        Normal:    0
+        Dead:      0
+    --------------- Cache ---------------
+        Total: 1
+        Dead:  0
+    ---------------  RPC  ---------------
+        Holdon:   0
+        Waiting:  0
+==============================================
