@@ -24,7 +24,20 @@ vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
 vim.opt.updatetime=50
+vim.opt.foldmethod='manual'
 vim.cmd([[
 autocmd CursorMoved * exe exists("HlUnderCursor")?HlUnderCursor?printf('match HighlightWord /\V\<%s\>/', escape(expand('<cword>'), '/\')):'match none':""
 let HlUnderCursor=1
 ]])
+--vim.cmd([[
+--augroup vimrc
+--  au BufReadPre * setlocal foldmethod=indent
+--  au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
+--augroup END
+--]])
+--vim.cmd([[
+--autocmd BufWinLeave *.* mkview!
+--]])
+--vim.cmd([[
+--autocmd BufWinEnter *.* silent loadview
+--]])

@@ -86,9 +86,13 @@ local function launch()
 			if not text or #text == 0 then
 				return
 			end
-			local cmd = "trans en:th -no-init  -no-ansi " .. text 
-			--local cmd = "dict -d wn " .. text 
-			spawn.easy_async(cmd, function(stdout, stderr)
+      
+			local trans_cmd = "trans en:th -no-init  -no-ansi " .. text 
+
+			local log_cmd =("bash -c 'echo \""..text..";"..os.date().. "\" >> ./my_log/dict.log'")
+      spawn.easy_async(log_cmd,function(stdout,stderr)
+      end)
+			spawn.easy_async(trans_cmd, function(stdout, stderr)
 				if stderr ~= "" then
 					show_warning(stderr)
 				end

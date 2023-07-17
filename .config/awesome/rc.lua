@@ -267,10 +267,10 @@ awful.screen.connect_for_each_screen(function(s)
         s.mylayoutbox,
       },
     })
-    awful.tag({ "Main", "Virt.","Data", "Res.", "Awful"}, s, awful.layout.layouts[1])
+    awful.tag({ "Main", "IDK","File", "Res.", "Awful"}, s, awful.layout.layouts[1])
 
   else
-    awful.tag({ "Code", "R&D","Notes", "IDK", "Awful"}, s, awful.layout.layouts[1])
+    awful.tag({ "Main", "Code","IDK", "Notes", "Awful"}, s, awful.layout.layouts[1])
 		gears.wallpaper.maximized(config_path.."pic/wallpaper/base-vertical.png", s, true)
     s.mywibox:setup({
       layout = wibox.layout.align.horizontal,
@@ -476,7 +476,7 @@ local specialChars = {
   ['}'] = '[RIGHT_BRACE]',
   ['~'] = '[TILDE]',
 }
-function dump(o)
+local function dump(o)
    if type(o) == 'table' then
       local s = '{ '
       for k,v in pairs(o) do
@@ -499,11 +499,11 @@ function dump(o)
 end
 print=debug_terminal
 function naughty.config.notify_callback(args)
-  dump_args=dump(args)
-  log_str="normal:"..dump_args.."\n----------------------------------------\n"
-  awful.spawn("bash -c 'echo \""..log_str.. "\" >> naughty.log'")
+  local dump_args=dump(args)
+  local log_str="normal:"..dump_args.."\n----------------------------------------\n"
+  awful.spawn("bash -c 'echo \""..log_str.. "\" >> ./my_log/naughty.log'")
   if args.appname == "teams-for-linux" then
-    debug_terminal("notify from teams;try change timeout")
+    --debug_terminal("notify from teams;try change timeout")
     args.timeout=0
     args.preset.timeout=0
     args.position="top_middle"
@@ -517,7 +517,7 @@ function naughty.config.notify_callback(args)
 	end
   dump_args=dump(args)
   log_str="modified:"..dump_args.."\n========================================\n"
-  awful.spawn("bash -c 'echo \""..log_str.. "\" >> naughty.log'")
+  awful.spawn("bash -c 'echo \""..log_str.. "\" >> ./my_log/naughty.log'")
   --sep between log
   --awful.spawn("bash -c 'echo \"manual  :"..args.preset.timeout..","..args.timeout.. "\" >> naughty.log'")
 	return args

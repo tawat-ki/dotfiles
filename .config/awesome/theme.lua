@@ -35,7 +35,7 @@ theme.border_focus  = "#bd93f9"
 --theme.border_focus  = "#ff6e67"
 --theme.border_focus  = "#FAA0A0"
 --theme.border_focus  = "#ff9e99"
---theme.border_focus  = "#ff8680"
+theme.border_focus  = "#ff8680"
 
 
 theme.taglist_font = "Hack Bold 9"
