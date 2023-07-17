@@ -64,7 +64,6 @@ local main_widget = wibox.container({
 	net_section,
 	cpu_section,
 	ram_section,
-	gpu_section,
 	icon.volume,
 	volume_val,
 	wibox.widget.textbox(" |"),
