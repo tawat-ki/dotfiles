@@ -11,6 +11,7 @@ if [[ -e $HOME/dotfiles/zsh/manjaro-zsh-prompt ]]; then
 fi
 
 export PYENV_ROOT="$HOME/.pyenv"
+export GOOGLE_APPLICATION_CREDENTIALS="/home/tawat-ki/.config/gcloud/application_default_credentials.json"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
@@ -32,7 +33,9 @@ alias td='vim ~/todo.md'
 alias dr='docker run --rm -it --entrypoint bash'
 alias getid='xprop _NET_WM_PID | cut -d' ' -f3'
 alias orange='python -m Orange.canvas'
-alias ja='python -m jupyter_ascending.scripts.make_pair --base'
+#alias ja='python -m jupyter_ascending.scripts.make_pair --base'
+alias ja='~/dotfiles/ja_make_pair.sh'
+
 alias start_ja='JUPYTER_PORT=8888 JUPYTER_PORT_RETRIES=0 jupyter notebook --no-browser --NotebookApp.token="copium" &>/dev/null &'
 alias dcc='docker compose rm -f && docker compose pull && docker compose up --build'
 alias DH='xrandr --output HDMI-0 --mode 1920x1080 --pos 1920x0 --rotate left --output DP-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1 --off --output DP-2 --off --output DP-3 --off --output DP-4 --off --output DP-5 --off'
@@ -41,20 +44,6 @@ alias D='xrandr --output HDMI-0 --off --output DP-0 --primary --mode 1920x1080 -
 alias mv='mv -v'
 alias cp='cp -v'
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/deboost/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/deboost/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/deboost/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/deboost/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
 
 # Enable vi mode
 #bindkey -v
@@ -144,3 +133,21 @@ preexec_functions+=( notifyosd-preexec )
 #export LS_COLORS=
 
 LS_COLORS="$LS_COLORS:ow=103;30;01"
+
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+#__conda_setup="$('/media/tawat-ki/WD_BLUE_SSD_EXT4/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+#if [ $? -eq 0 ]; then
+#    eval "$__conda_setup"
+#else
+#    if [ -f "/media/tawat-ki/WD_BLUE_SSD_EXT4/miniconda3/etc/profile.d/conda.sh" ]; then
+#        . "/media/tawat-ki/WD_BLUE_SSD_EXT4/miniconda3/etc/profile.d/conda.sh"
+#    else
+#        export PATH="/media/tawat-ki/WD_BLUE_SSD_EXT4/miniconda3/bin:$PATH"
+#    fi
+#fi
+#unset __conda_setup
+# <<< conda initialize <<<
+

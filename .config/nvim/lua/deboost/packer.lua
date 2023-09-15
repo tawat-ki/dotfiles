@@ -48,6 +48,7 @@ return require("packer").startup(function(use)
 		end,
 	})
   use("nvim-treesitter/nvim-treesitter-context")
+  
   -- install without yarn or npm
   use({
       "iamcco/markdown-preview.nvim",
@@ -56,4 +57,7 @@ return require("packer").startup(function(use)
   use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
   use("norcalli/nvim-colorizer.lua")
   use("mbbill/undotree")
+  use("mechatroner/rainbow_csv")
+  use("nvim-lua/plenary.nvim")
+  use("ThePrimeagen/harpoon")
 end)

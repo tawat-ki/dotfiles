@@ -1,41 +1,5 @@
-@font-face {
- font-family: "Hack";
- font-weight: normal;
- font-style: normal;
- src: local('"Hack"'), url('fonts/hack.woff2') format('woff2');
-}
-@font-face {
- font-family: "Hack";
- font-weight: normal;
- font-style: italic;
- src: local('"Hack"'), url('fonts/hack-italic.woff2') format('woff2');
-}
-@font-face {
- font-family: "Hack";
- font-weight: normal;
- font-style: normal;
- src: local('"Hack"'), url('fonts/Hack-Italic.ttf') format('truetype');
-}
-@font-face {
- font-family: "Hack";
- font-weight: normal;
- font-style: normal;
- src: local('"Hack"'), url('fonts/hack.ttf') format('truetype');
-}
-@font-face {
- font-family: "Merriweather";
- font-weight: normal;
- font-style: normal;
- src: local('"Merriweather"'), url('fonts/Merriweather-Regular.ttf') format('truetype');
-}
-@font-face {
- font-family: "PT Sans";
- font-weight: normal;
- font-style: normal;
- src: local('"PT Sans"'), url('fonts/pt-sans-regular.ttf') format('truetype');
-}
 div#notebook {
- font-family: "PT Sans", sans-serif;
+ font-family: sans-serif;
  font-size: 13pt;
  line-height: 170%;
  color: #cdd2e9;
@@ -44,7 +8,7 @@ div#notebook {
 }
 body,
 div.body {
- font-family: "PT Sans", sans-serif;
+ font-family: sans-serif;
  font-size: 13pt;
  color: #a2b0c7;
  background-color: #262931;
@@ -59,7 +23,7 @@ body.notebook_app {
  overflow-y: hidden;
 }
 a {
- font-family: "PT Sans", sans-serif;
+ font-family: sans-serif;
  color: #a2b0c7;
  -webkit-font-smoothing: antialiased !important;
 }
@@ -222,7 +186,7 @@ span#sort-name.btn.btn-xs.btn-default.sort-action:hover .fa {
  font-size: 18px;
 }
 div#notebook_toolbar div.dynamic-instructions {
- font-family: "PT Sans", sans-serif;
+ font-family: sans-serif;
  font-size: 17px;
  color: #546379;
 }
@@ -413,14 +377,14 @@ div.list_item:hover {
  margin-top: -2px;
 }
 ul#tabs a {
- font-family: "PT Sans", sans-serif;
+ font-family: sans-serif;
  font-size: 13.5pt;
  font-weight: normal;
  font-style: normal;
  text-shadow: none !important;
 }
 .nav-tabs {
- font-family: "PT Sans", sans-serif;
+ font-family: sans-serif;
  font-size: 13.5pt;
  font-weight: normal;
  font-style: normal;
@@ -481,7 +445,7 @@ ul#tabs a {
  -webkit-font-smoothing: subpixel-antialiased !important;
 }
 div#notebook {
- font-family: "PT Sans", sans-serif;
+ font-family: sans-serif;
  font-size: 13pt;
  padding-top: 4px;
 }
@@ -524,7 +488,7 @@ div#header-container {
 }
 #header,
 .edit_app #header {
- font-family: "PT Sans", sans-serif;
+ font-family: sans-serif;
  font-size: 13pt;
  box-shadow: none;
  background-color: #262931;
@@ -566,7 +530,7 @@ p.navbar-text.indicator_area {
  color: #4c8be2;
 }
 .navbar-default {
- font-family: "PT Sans", sans-serif;
+ font-family: sans-serif;
  font-size: 13pt;
  background-color: #262931;
  border-color: #343d4b;
@@ -574,7 +538,7 @@ p.navbar-text.indicator_area {
  padding-bottom: 0px;
 }
 .navbar-default .navbar-nav > li > a {
- font-family: "PT Sans", sans-serif;
+ font-family: sans-serif;
  font-size: 13pt;
  color: #a2b0c7;
  display: block;
@@ -689,12 +653,12 @@ div.notification_widget.info,
 .item_buttons .running-indicator {
  padding-top: 4px;
  color: #48a667;
- font-family: "PT Sans", sans-serif;
+ font-family: sans-serif;
  text-rendering: auto;
  -webkit-font-smoothing: antialiased;
 }
 #notification_trusted {
- font-family: "PT Sans", sans-serif;
+ font-family: sans-serif;
  border: none;
  background: transparent;
  background-color: transparent;
@@ -842,13 +806,13 @@ i.fa.fa-icon {
 }
 .fa {
  display: inline-block;
- font: normal normal normal 10pt/1 "FontAwesome", "PT Sans", sans-serif;
+ font: normal normal normal 10pt/1 "FontAwesome", sans-serif;
  text-rendering: auto;
  -webkit-font-smoothing: antialiased;
  -moz-osx-font-smoothing: grayscale;
 }
 .dropdown-menu {
- font-family: "PT Sans", sans-serif;
+ font-family: sans-serif;
  font-size: 13pt;
  box-shadow: none;
  padding: 0px;
@@ -859,7 +823,7 @@ i.fa.fa-icon {
  line-height: 1;
 }
 .dropdown-menu:hover {
- font-family: "PT Sans", sans-serif;
+ font-family: sans-serif;
  font-size: 13pt;
  box-shadow: none;
  padding: 0px;
@@ -870,7 +834,7 @@ i.fa.fa-icon {
  line-height: 1;
 }
 .dropdown-menu > li > a {
- font-family: "PT Sans", sans-serif;
+ font-family: sans-serif;
  font-size: 12.0pt;
  display: block;
  padding: 10px 20px 9px 10px;
@@ -904,7 +868,7 @@ i.fa.fa-icon {
 .dropdown-menu > .disabled > a,
 .dropdown-menu > .disabled > a:hover,
 .dropdown-menu > .disabled > a:focus {
- font-family: "PT Sans", sans-serif;
+ font-family: sans-serif;
  font-size: 12.0pt;
  font-weight: normal;
  color: #546379;
@@ -934,7 +898,7 @@ div.kse-dropdown > .dropdown-menu,
 }
 .btn,
 .btn-default {
- font-family: "PT Sans", sans-serif;
+ font-family: sans-serif;
  color: #a2b0c7;
  background: #3a4452;
  background-color: #3a4452;
@@ -1141,7 +1105,7 @@ div.dynamic-buttons > button,
  z-index: 2;
 }
 .dropdown-header {
- font-family: "PT Sans", sans-serif !important;
+ font-family: sans-serif !important;
  font-size: 13pt !important;
  color: #4c8be2 !important;
  border-bottom: none !important;
@@ -1151,7 +1115,7 @@ div.dynamic-buttons > button,
 span#last-modified.btn.btn-xs.btn-default.sort-action,
 span#sort-name.btn.btn-xs.btn-default.sort-action,
 span#file-size.btn.btn-xs.btn-default.sort-action {
- font-family: "PT Sans", sans-serif;
+ font-family: sans-serif;
  font-size: 16px;
  background-color: transparent;
  background: transparent;
@@ -1285,7 +1249,7 @@ div.modal-footer > button:hover {
  transition: 200ms ease;
 }
 .modal-content {
- font-family: "PT Sans", sans-serif;
+ font-family: sans-serif;
  font-size: 12.0pt;
  position: relative;
  background: #2e3642;
@@ -1296,7 +1260,7 @@ div.modal-footer > button:hover {
  outline: none;
 }
 .modal-header {
- font-family: "PT Sans", sans-serif;
+ font-family: sans-serif;
  font-size: 13pt;
  color: #a2b0c7;
  background: #2e3642;
@@ -1306,7 +1270,7 @@ div.modal-footer > button:hover {
  min-height: 16.4286px;
 }
 .modal-content h4 {
- font-family: "PT Sans", sans-serif;
+ font-family: sans-serif;
  font-size: 16pt;
  color: #a2b0c7;
  padding: 5px;
@@ -1340,7 +1304,7 @@ div.panel,
 div.panel-default,
 .panel,
 .panel-default {
- font-family: "PT Sans", sans-serif;
+ font-family: sans-serif;
  font-size: 13pt;
  background-color: #384152;
  color: #a2b0c7;
@@ -1368,7 +1332,7 @@ div.container-fluid {
 }
 div.form-control,
 .form-control {
- font-family: "PT Sans", sans-serif;
+ font-family: sans-serif;
  font-size: initial;
  color: #a2b0c7;
  background-color: #2a313c;
@@ -1632,7 +1596,7 @@ div.cell.selected.jupyter-soft-selected .input {
 }
 div.prompt,
 .prompt {
- font-family: "Hack", monospace, monospace;
+ font-family: monospace, monospace;
  font-size: 9pt !important;
  font-weight: normal;
  color: #446489;
@@ -1720,7 +1684,7 @@ div.output_wrapper {
 }
 div.output_subarea.output_text.output_stream.output_stdout,
 div.output_subarea.output_text {
- font-family: "Hack", monospace, monospace;
+ font-family: monospace, monospace;
  font-size: 8.5pt !important;
  line-height: 150% !important;
  background-color: #384151;
@@ -1730,7 +1694,7 @@ div.output_subarea.output_text {
  margin-left: 11.5px;
 }
 div.output_area pre {
- font-family: "Hack", monospace, monospace;
+ font-family: monospace, monospace;
  font-size: 8.5pt !important;
  line-height: 151% !important;
  color: #cdd2e9;
@@ -1741,7 +1705,7 @@ div.output_area {
  display: -webkit-box;
 }
 div.output_html {
- font-family: "Hack", monospace, monospace;
+ font-family: monospace, monospace;
  font-size: 8.5pt;
  color: #dbdfef;
  background-color: #384151;
@@ -1766,7 +1730,7 @@ div.btn.btn-default.output_collapsed:hover {
  border-color: #1f252d;
 }
 div.prompt.output_prompt {
- font-family: "Hack", monospace, monospace;
+ font-family: monospace, monospace;
  font-weight: bold !important;
  background-color: #384151;
  color: transparent;
@@ -1779,7 +1743,7 @@ div.prompt.output_prompt {
  border-right: 2px solid transparent;
 }
 div.out_prompt_overlay.prompt {
- font-family: "Hack", monospace, monospace;
+ font-family: monospace, monospace;
  font-weight: bold !important;
  background-color: #384151;
  border-bottom-left-radius: 2px;
@@ -1823,8 +1787,8 @@ div.cell.selected .out_prompt_overlay.prompt {
 div.text_cell,
 div.text_cell_render pre,
 div.text_cell_render {
- font-family: "Merriweather", serif;
- font-size: 10pt;
+ font-family: sans-serif;
+ font-size: 13pt;
  line-height: 130% !important;
  color: #abc1e2;
  background: #303845;
@@ -1854,28 +1818,28 @@ div.cell.text_cell .CodeMirror pre {
  line-height: 170% !important;
 }
 div.cell.text_cell.rendered.selected {
- font-family: "Merriweather", serif;
+ font-family: sans-serif;
  line-height: 170% !important;
  background: #303845;
  background-color: #303845;
  border-radius: 0px;
 }
 div.cell.text_cell.unrendered.selected {
- font-family: "Merriweather", serif;
+ font-family: sans-serif;
  line-height: 170% !important;
  background: #303845;
  background-color: #303845;
  border-radius: 0px;
 }
 div.cell.text_cell.selected {
- font-family: "Merriweather", serif;
+ font-family: sans-serif;
  line-height: 170% !important;
  background: #303845;
  background-color: #303845;
  border-radius: 0px;
 }
 .edit_mode div.cell.text_cell.selected {
- font-family: "Merriweather", serif;
+ font-family: sans-serif;
  line-height: 170% !important;
  background: #303845;
  background-color: #303845;
@@ -1884,7 +1848,7 @@ div.cell.text_cell.selected {
 div.text_cell.unrendered,
 div.text_cell.unrendered.selected,
 div.edit_mode div.text_cell.unrendered {
- font-family: "Merriweather", serif;
+ font-family: sans-serif;
  line-height: 170% !important;
  background: #303845;
  background-color: #303845;
@@ -1896,7 +1860,7 @@ div.cell.text_cell .prompt {
  width: 11.5ex !important;
 }
 div.cell.text_cell.rendered .prompt {
- font-family: "Hack", monospace, monospace;
+ font-family: monospace, monospace;
  font-size: 9.5pt !important;
  font-weight: normal;
  color: #446489 !important;
@@ -1908,7 +1872,7 @@ div.cell.text_cell.rendered .prompt {
  border-left: 4px solid #303845;
 }
 div.cell.text_cell.unrendered .prompt {
- font-family: "Hack", monospace, monospace;
+ font-family: monospace, monospace;
  font-size: 9.5pt !important;
  font-weight: normal;
  color: #446489 !important;
@@ -1935,7 +1899,7 @@ div.text_cell.rendered.selected .prompt {
  border-right: 2px solid rgba(53,114,198,.5);
 }
 div.rendered_html code {
- font-family: "Hack", monospace, monospace;
+ font-family: monospace, monospace;
  font-size: 11pt;
  padding-top: 3px;
  padding-left: 2px;
@@ -1951,7 +1915,7 @@ samp {
 }
 .well code,
 code {
- font-family: "Hack", monospace, monospace;
+ font-family: monospace, monospace;
  font-size: 11pt !important;
  line-height: 170% !important;
  color: #abc1e2;
@@ -1991,7 +1955,7 @@ div.rendered_html {
  margin-bottom: .5em;
 }
 div.rendered_html pre {
- font-family: "Hack", monospace, monospace;
+ font-family: monospace, monospace;
  font-size: 11pt !important;
  line-height: 170% !important;
  color: #abc1e2 !important;
@@ -2007,7 +1971,7 @@ div.rendered_html pre {
 }
 div.text_cell_render pre,
 div.text_cell_render code {
- font-family: "Hack", monospace, monospace;
+ font-family: monospace, monospace;
  font-size: 11pt !important;
  line-height: 170% !important;
  color: #abc1e2;
@@ -2034,7 +1998,7 @@ div.text_cell_render h4,
 div.rendered_html h4,
 div.text_cell_render h5,
 div.rendered_html h5 {
- font-family: "PT Sans", sans-serif;
+ font-family: sans-serif;
  margin: 0.4em .2em .3em .2em !important;
 }
 .rendered_html h1:first-child,
@@ -2118,11 +2082,11 @@ div#_vivaldi-spatnav-focus-indicator._vivaldi-spatnav-focus-indicator {
  border: none;
 }
 .rendered_html td {
- font-family: "PT Sans", sans-serif !important;
+ font-family: sans-serif !important;
  font-size: 9.3pt;
 }
 .rendered_html table {
- font-family: "PT Sans", sans-serif !important;
+ font-family: sans-serif !important;
  margin-left: 8px;
  margin-right: auto;
  border: none;
@@ -2132,7 +2096,7 @@ div#_vivaldi-spatnav-focus-indicator._vivaldi-spatnav-focus-indicator {
  table-layout: fixed;
 }
 .rendered_html thead {
- font-family: "PT Sans", sans-serif !important;
+ font-family: sans-serif !important;
  font-size: 10.3pt !important;
  background: #2e3642;
  color: #d4d8ec;
@@ -2160,7 +2124,7 @@ div.widget-area {
  color: #cdd2e9;
 }
 div.widget-area a {
- font-family: "PT Sans", sans-serif;
+ font-family: sans-serif;
  font-size: 12.0pt;
  font-weight: normal;
  font-style: normal;
@@ -2169,7 +2133,7 @@ div.widget-area a {
 }
 div.widget-area a:hover,
 div.widget-area a:focus {
- font-family: "PT Sans", sans-serif;
+ font-family: sans-serif;
  font-size: 12.0pt;
  font-weight: normal;
  font-style: normal;
@@ -2241,7 +2205,7 @@ div.widget-label {
  margin-left: 12px;
 }
 .rendered_html :link {
- font-family: "PT Sans", sans-serif;
+ font-family: sans-serif;
  font-size: 100%;
  color: #4c8be2;
  text-decoration: underline;
@@ -2253,7 +2217,7 @@ div.widget-label {
 }
 .rendered_html :visited:hover,
 .rendered_html :link:hover {
- font-family: "PT Sans", sans-serif;
+ font-family: sans-serif;
  font-size: 100%;
  color: #1671ef;
 }
@@ -2296,7 +2260,7 @@ div#nbextensions-configurator-container.container,
  margin-left: auto;
 }
 div.nbext-selector > nav > .nav > li > a {
- font-family: "PT Sans", sans-serif;
+ font-family: sans-serif;
  font-size: 10.5pt;
  padding: 2px 5px;
 }
@@ -2322,7 +2286,7 @@ div.nbext-selector > nav > .nav > li.active:hover {
  -webkit-font-smoothing: subpixel-antialiased !important;
 }
 div.nbext-readme > .nbext-readme-contents > .rendered_html {
- font-family: "PT Sans", sans-serif;
+ font-family: sans-serif;
  font-size: 11.5pt;
  line-height: 145%;
  padding: 1em 1em;
@@ -2450,13 +2414,13 @@ span.bg-danger.text-danger {
  box-shadow: inset 0 1px 1px rgba(0,0,0,0.025);
 }
 .kse-input-group-pretty > kbd {
- font-family: "Hack", monospace, monospace;
+ font-family: monospace, monospace;
  color: #a2b0c7;
  font-weight: normal;
  background: transparent;
 }
 .kse-input-group-pretty > kbd {
- font-family: "Hack", monospace, monospace;
+ font-family: monospace, monospace;
  color: #a2b0c7;
  font-weight: normal;
  background: transparent;
@@ -2586,7 +2550,7 @@ div.collapsible_headings_toggle .fa-caret-right:before {
  font-size: 11pt !important;
 }
 input.raw_input {
- font-family: "Hack", monospace, monospace;
+ font-family: monospace, monospace;
  font-size: 11pt !important;
  color: #cdd2e9;
  background-color: #2a313c;
@@ -2621,7 +2585,7 @@ video {
  z-index: 1;
 }
 .typeahead-field input {
- font-family: "PT Sans", sans-serif;
+ font-family: sans-serif;
  color: #cdd2e9;
  border: none;
  font-size: 28pt;
@@ -2639,7 +2603,7 @@ body > div.modal.cmd-palette.typeahead-field {
  background-color: #2b3850;
 }
 .typeahead-container button {
- font-family: "PT Sans", sans-serif;
+ font-family: sans-serif;
  font-size: 28pt;
  background-color: #2e3642;
  border: none;
@@ -2674,7 +2638,7 @@ body > div.modal.cmd-palette.typeahead-field {
 }
 .typeahead-dropdown,
 .typeahead-list {
- font-family: "PT Sans", sans-serif;
+ font-family: sans-serif;
  font-size: 13pt;
  color: #a2b0c7;
  background-color: #202937;
@@ -2822,7 +2786,7 @@ div#short-key-bindings-intro.well,
  background: #262931;
 }
 .terminal-app .terminal {
- font-family: "Hack", monospace, monospace;
+ font-family: monospace, monospace;
  font-size: 11pt;
  line-height: 170%;
  color: #cdd2e9;
@@ -2938,7 +2902,7 @@ div#pager .ui-resizable-handle {
 }
 div.CodeMirror,
 div.CodeMirror pre {
- font-family: "Hack", monospace, monospace;
+ font-family: monospace, monospace;
  font-size: 11pt;
  line-height: 170%;
  color: #cdd2e9;
@@ -3000,7 +2964,7 @@ div.js-error {
  color: #e39194;
 }
 .ipython_tooltip {
- font-family: "Hack", monospace, monospace;
+ font-family: monospace, monospace;
  font-size: 11pt;
  line-height: 170%;
  border: 2px solid #2b333f;
@@ -3014,7 +2978,7 @@ div.js-error {
  z-index: 1000;
 }
 .ipython_tooltip .tooltiptext pre {
- font-family: "Hack", monospace, monospace;
+ font-family: monospace, monospace;
  font-size: 11pt;
  line-height: 170%;
  background: #3c4657;
@@ -3036,7 +3000,7 @@ div.tooltiptext.bigtooltip {
  max-width: 800px;
 }
 .cm-s-ipython.CodeMirror {
- font-family: "Hack", monospace, monospace;
+ font-family: monospace, monospace;
  font-size: 11pt;
  background: #303845;
  color: #cdd2e9;
@@ -3175,7 +3139,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {
  color: #77abe7;
 }
 div.cell.text_cell .cm-s-default .cm-header {
- font-family: "PT Sans", sans-serif;
+ font-family: sans-serif;
  font-weight: normal;
  color: #4c8be2 !important;
  margin-top: 0.3em !important;
@@ -3261,7 +3225,7 @@ body :focus .MathJax {
  margin: 0px;
  margin-left: 2px;
  overflow: auto;
- font-family: "Hack", monospace, monospace;
+ font-family: monospace, monospace;
  font-size: 11pt;
  color: #cdd2e9;
  width: auto;

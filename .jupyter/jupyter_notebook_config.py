@@ -569,7 +569,7 @@ c = get_config()  # noqa
 #          Setting to an empty string disables authentication altogether, which
 #  is NOT RECOMMENDED.
 #  Default: '<generated>'
-c.NotebookApp.token = '<generated>'
+c.NotebookApp.token = 'aoeu'
 
 ## Supply overrides for the tornado.web.Application that the Jupyter notebook
 #  uses.
@@ -1437,7 +1437,6 @@ c.NotebookApp.token = '<generated>'
 # c.TerminalManager.cull_interval = 300
 
 c.NotebookApp.ip = '0.0.0.0' # listen on all IPs
-c.NotebookApp.token = '<generated>'     #not# disable authentication
 c.NotebookApp.allow_origin = '*' # allow access from anywhere
 c.NotebookApp.disable_check_xsrf = True # allow cross-site requests
 #http://0.0.0.0:8888/?token=%3Cgenerated%3E

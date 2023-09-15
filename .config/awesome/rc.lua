@@ -75,21 +75,21 @@ local modkey = "Mod4"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
 	awful.layout.suit.tile,
-	--  awful.layout.suit.tile.left,
-	--  awful.layout.suit.tile.bottom,
-	--  awful.layout.suit.tile.top,
-	--  awful.layout.suit.fair,
-	--  awful.layout.suit.fair.horizontal,
-	awful.layout.suit.spiral,
-	--  awful.layout.suit.spiral.dwindle,
-	--  awful.layout.suit.max,
-	--  awful.layout.suit.max.fullscreen,
-	--  awful.layout.suit.magnifier,
-	--    awful.layout.suit.corner.nw,
-	--    awful.layout.suit.corner.ne,
+	--awful.layout.suit.tile.left,
+	--awful.layout.suit.tile.bottom,
+	awful.layout.suit.tile.bottom,
+	--awful.layout.suit.fair,
+	--awful.layout.suit.fair.horizontal,
+	--awful.layout.suit.spiral,
+	--awful.layout.suit.spiral.dwindle,
+	--awful.layout.suit.max,
+	--awful.layout.suit.max.fullscreen,
+	--awful.layout.suit.magnifier,
+	--awful.layout.suit.corner.nw,
+	--awful.layout.suit.corner.ne,
 	awful.layout.suit.floating,
-	--    awful.layout.suit.corner.sw,
-	--  awful.layout.suit.corner.se,
+	--awful.layout.suit.corner.sw,
+	--awful.layout.suit.corner.se,
 }
 -- }}}
 
@@ -279,6 +279,7 @@ awful.screen.connect_for_each_screen(function(s)
         --  mylauncher,
         s.mytaglist,
         s.mypromptbox,
+        wibox.widget.textbox("| "),
       },
 
       s.mytasklist, -- Middle widget
@@ -504,17 +505,17 @@ function naughty.config.notify_callback(args)
   awful.spawn("bash -c 'echo \""..log_str.. "\" >> ./my_log/naughty.log'")
   if args.appname == "teams-for-linux" then
     --debug_terminal("notify from teams;try change timeout")
-    args.timeout=0
-    args.preset.timeout=0
+    args.timeout=10
+    args.preset.timeout=10
     args.position="top_middle"
   end
-  if args.appname=="notify-send" then
-    awful.spawn("mpg123 " .. config_path .. "bin/tuturu.mp3")
-    if not string.find(args.text,"!!!") then
-      args.timeout=0
-      args.preset.timeout=0
-    end
-	end
+  --if args.appname=="notify-send" then
+  --  awful.spawn("mpg1023 " .. config_path .. "bin/tuturu.mp3")
+  --  if not string.find(args.text,"!!!") then
+  --    args.timeout=10
+  --    args.preset.timeout=10
+  --  end
+	--end
   dump_args=dump(args)
   log_str="modified:"..dump_args.."\n========================================\n"
   awful.spawn("bash -c 'echo \""..log_str.. "\" >> ./my_log/naughty.log'")
@@ -529,12 +530,14 @@ gears.timer({
   autostart = true,
   callback = function()
     awful.spawn("notify-send -u critical -t 5000  'Take an eyes break!!!'")
+    awful.spawn("mpg123 " .. config_path .. "bin/tuturu.mp3")
     gears.timer({
       timeout = 21,
       call_now = false,
       autostart = true,
       single_shot = true,
       callback = function()
+        awful.spawn("mpg1023 " .. config_path .. "bin/tuturu.mp3")
         awful.spawn("notify-send -u critical -t 1000  '!!!'")
       end,
     })

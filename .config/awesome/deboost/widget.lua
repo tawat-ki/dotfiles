@@ -81,3 +81,5 @@ local rt = {
 	--  update_caps=update_caps,
 }
 return rt
+--nvidia-settings -q GPUUtilization  |grep memory |awk 'NR==1{printf("%0.1f%%",substr($4,10))}'
+--nvidia-settings -q [gpu:0]/useddedicatedgpumemory  |grep B550 |awk '{printf("%0.1f%%",substr($4,1,length($4)-1)/120)}'

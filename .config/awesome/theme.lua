@@ -14,7 +14,7 @@ local themes_path = gfs.get_themes_dir()
 local theme = {}
 theme.maximized_hide_border = false
 theme.fullscreen_hide_border = true
-theme.font          = "Hack Bold 9"
+theme.font          = "Hack Bold 10"
 theme.bg_normal     = "#282a36"
 theme.bg_focus      = "#bd93f9"
 theme.bg_urgent     = "#ff5555"
@@ -38,7 +38,7 @@ theme.border_focus  = "#bd93f9"
 theme.border_focus  = "#ff8680"
 
 
-theme.taglist_font = "Hack Bold 9"
+theme.taglist_font = "Hack Bold 10"
 
 theme.taglist_fg_focus="#282a36"
 theme.taglist_fg_urgent="#282a36"
@@ -50,7 +50,7 @@ theme.taglist_bg_urgent="#ff5555"
 theme.taglist_bg_occupied="#44475a"
 theme.taglist_bg_empty="#282a36"
 --      
-theme.tasklist_font = "Hack Bold 9"
+theme.tasklist_font = "Hack Bold 10"
 
 theme.tasklist_bg_normal     = "#aaaaaa"
 theme.tasklist_bg_focus      = "#bd93f9"
