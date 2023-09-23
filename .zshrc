@@ -22,7 +22,7 @@ unsetopt correct_all
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
 
 force_color_prompt=yes
-alias vim="nvim"
+#alias vim="nvim"
 alias j='jupyter qtconsole  --style=paraiso-light &'
 alias pb='fg %+'
 alias pm='python ./main.py'
