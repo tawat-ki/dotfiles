@@ -207,7 +207,7 @@ c = get_config()  # noqa
 #                        standard library module, which allows setting of the
 #                        BROWSER environment variable to override it.
 #  Default: ''
-# c.NotebookApp.browser = ''
+ c.NotebookApp.browser = 'qutebrowser'
 
 ## The full path to an SSL/TLS certificate file.
 #  Default: ''
@@ -1436,7 +1436,3 @@ c.NotebookApp.token = 'aoeu'
 #  Default: 300
 # c.TerminalManager.cull_interval = 300
 
-c.NotebookApp.ip = '0.0.0.0' # listen on all IPs
-c.NotebookApp.allow_origin = '*' # allow access from anywhere
-c.NotebookApp.disable_check_xsrf = True # allow cross-site requests
-#http://0.0.0.0:8888/?token=%3Cgenerated%3E

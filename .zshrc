@@ -24,6 +24,7 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
 force_color_prompt=yes
 #alias vim="nvim"
 alias j='jupyter qtconsole  --style=paraiso-light &'
+alias icat="kitty +kitten icat"
 alias pb='fg %+'
 alias pm='python ./main.py'
 alias to_csv='libreoffice --headless --convert-to csv'

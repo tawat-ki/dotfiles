@@ -19,3 +19,10 @@ ln -s ~/dotfiles/.jupyter ~/.jupyter
 ln -s ~/dotfiles/.Xresources ~/.Xresources
 ln -s ~/dotfiles/.xinitrc ~/.xinitrc
 ```
+```bash
+curl -L "https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage" -o "/tmp/nvim.appimage"
+chmod +x "/tmp/nvim.appimage"
+sudo mv "/tmp/nvim.appimage" "/usr/bin/nvim"
+git clone --depth 1 https://github.com/wbthomason/packer.nvim\ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+/usr/bin/nvim +PackerSync
+```
