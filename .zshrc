@@ -10,17 +10,17 @@ if [[ -e $HOME/dotfiles/zsh/manjaro-zsh-prompt ]]; then
   source $HOME/dotfiles/zsh/manjaro-zsh-prompt
 fi
 
-export PYENV_ROOT="$HOME/.pyenv"
 export GOOGLE_APPLICATION_CREDENTIALS="/home/tawat-ki/.config/gcloud/application_default_credentials.json"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+#export PYENV_ROOT="$HOME/.pyenv"
+#command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+#eval "$(pyenv init -)"
 
 export PATH="$HOME/.mybin:$PATH"
 export EDITOR=nvim
 export FZF_DEFAULT_COMMAND='rg --hidden -l ""'
 unsetopt correct_all
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
-
+PYDEVD_DISABLE_FILE_VALIDATION=1
 force_color_prompt=yes
 #alias vim="nvim"
 alias j='jupyter qtconsole  --style=paraiso-light &'
@@ -137,18 +137,19 @@ LS_COLORS="$LS_COLORS:ow=103;30;01"
 
 
 
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-#__conda_setup="$('/media/tawat-ki/WD_BLUE_SSD_EXT4/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-#if [ $? -eq 0 ]; then
-#    eval "$__conda_setup"
-#else
-#    if [ -f "/media/tawat-ki/WD_BLUE_SSD_EXT4/miniconda3/etc/profile.d/conda.sh" ]; then
-#        . "/media/tawat-ki/WD_BLUE_SSD_EXT4/miniconda3/etc/profile.d/conda.sh"
-#    else
-#        export PATH="/media/tawat-ki/WD_BLUE_SSD_EXT4/miniconda3/bin:$PATH"
-#    fi
-#fi
-#unset __conda_setup
+__conda_setup="$('/home/tawat-ki/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/tawat-ki/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/tawat-ki/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/tawat-ki/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
 # <<< conda initialize <<<
 

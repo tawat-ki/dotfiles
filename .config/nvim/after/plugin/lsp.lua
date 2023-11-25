@@ -36,4 +36,5 @@ cmp.setup({
 require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
 
+vim.diagnostic.config({virtual_text = false,underline = false})
 lsp.setup()
