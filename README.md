@@ -1,6 +1,7 @@
 # dotfiles-ubuntu
 ```bash
-sudo apt install ranger qutebrowser picom kitty awesome ksnip rofi brightnessctl xclip xsel ncal ripgrep zsh picom udiskie python3-venv tldr python3-pip
+sudo apt install ranger qutebrowser picom awesome ksnip rofi brightnessctl xclip xsel ncal ripgrep zsh picom udiskie python3-venv tldr python3-pip
+curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin && ln -sf /home/tawat-ki/.local/kitty.app/bin/kitty /usr/bin/kitty
 ln -s ~/dotfiles/.config/nvim ~/.config/nvim
 ln -s ~/dotfiles/.config/rofi ~/.config/rofi
 ln -s ~/dotfiles/.config/ranger ~/.config/ranger
@@ -18,11 +19,12 @@ ln -s ~/dotfiles/.themes ~/.themes
 ln -s ~/dotfiles/.jupyter ~/.jupyter
 ln -s ~/dotfiles/.Xresources ~/.Xresources
 ln -s ~/dotfiles/.xinitrc ~/.xinitrc
+
 ```
 ```bash
 curl -L "https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage" -o "/tmp/nvim.appimage"
 chmod +x "/tmp/nvim.appimage"
 sudo mv "/tmp/nvim.appimage" "/usr/bin/nvim"
-git clone --depth 1 https://github.com/wbthomason/packer.nvim\ ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 /usr/bin/nvim +PackerSync
 ```

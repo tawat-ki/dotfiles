@@ -498,29 +498,11 @@ local function dump(o)
             return "__"..type(o).."__"
      end
 end
-print=debug_terminal
+
 function naughty.config.notify_callback(args)
     local dump_args=dump(args)
-    local log_str="normal:"..dump_args.."\n----------------------------------------\n"
-    awful.spawn("bash -c 'echo \""..log_str.. "\" >> ./my_log/naughty.log'")
-    if args.appname == "teams-for-linux" then
-        --debug_terminal("notify from teams;try change timeout")
-        args.timeout=10
-        args.preset.timeout=10
-        args.position="top_middle"
-    end
-    --if args.appname=="notify-send" then
-    --    awful.spawn("mpg1023 " .. config_path .. "bin/tuturu.mp3")
-    --    if not string.find(args.text,"!!!") then
-    --        args.timeout=10
-    --        args.preset.timeout=10
-    --    end
-    --end
-    dump_args=dump(args)
-    log_str="modified:"..dump_args.."\n========================================\n"
-    awful.spawn("bash -c 'echo \""..log_str.. "\" >> ./my_log/naughty.log'")
-    --sep between log
-    --awful.spawn("bash -c 'echo \"manual    :"..args.preset.timeout..","..args.timeout.. "\" >> naughty.log'")
+    local log_str=dump_args.."\n----------------------------------------\n"
+    awful.spawn("bash -c 'echo \""..log_str.. "\" >> $HOME/my_log/naughty.log'")
     return args
 end
 
@@ -529,25 +511,15 @@ gears.timer({
     call_now = true,
     autostart = true,
     callback = function()
-        awful.spawn("notify-send -u critical -t 5000    'Take an eyes break!!!'")
-        awful.spawn("mpg123 " .. config_path .. "bin/tuturu.mp3")
+        awful.spawn("notify-send -u critical -t 5000    'Take an eye break!!!'")
         gears.timer({
             timeout = 21,
             call_now = false,
             autostart = true,
             single_shot = true,
             callback = function()
-                awful.spawn("mpg1023 " .. config_path .. "bin/tuturu.mp3")
                 awful.spawn("notify-send -u critical -t 1000    '!!!'")
             end,
         })
     end,
 })
---gears.timer({
---    timeout = 3600,
---    call_now = false,
---    autostart = true,
---    callback = function()
---        awful.spawn("notify-send -u critical    -t 5000 'Stay hydrated!!'")
---    end,
---    })
