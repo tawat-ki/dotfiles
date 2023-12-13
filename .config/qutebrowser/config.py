@@ -666,9 +666,40 @@ config.bind(';0', 'hint link spawn youtube-dl -x {hint-url}')
 config.bind('ps', 'jseval --quiet  document.querySelector("video, audio").playbackRate = parseFloat(prompt("Enter playback speed"))')
 config.bind('x', 'jseval --quiet document.querySelector("video, audio").currentTime +=5')
 config.bind('z', 'jseval --quiet document.querySelector("video, audio").currentTime -=5')
+youtube_dislike = """
+currentUrl = window.location.href;
+youtubeVideoId = new URL(currentUrl).searchParams.get('v');
+console.log("YouTube Video ID:", youtubeVideoId);
+apiUrl = `https://returnyoutubedislikeapi.com/Votes?videoId=${youtubeVideoId}`;
+fetch(apiUrl).then(response => { if (!response.ok) { throw new Error(`Network response was not ok: ${response.statusText}`);
+ }
+    return response.json();
+  })
+  .then(data => {
+    targetElement = document.querySelector("#info > span:nth-child(1)");
+    if (targetElement) {
+      targetElement.innerHTML = "[Dislike="+data["dislikes"]+"]" + targetElement.innerHTML;
+    } else {
+      console.error("Element not found");
+    }
+    targetElement = document.querySelector("#title > h1 > yt-formatted-string");
+    if (targetElement) {
+      targetElement.innerHTML += "[Dislike="+data["dislikes"]+"]";
+    } else {
+      console.error("Element not found");
+    }
+  })
+  .catch(error => {
+    prompt("Fetch error:", error);
+  });
+""" # got catch by .../qutebrowser/config/configtypes.py
+
+config.bind('l', f'jseval --quiet {youtube_dislike}')
 c.new_instance_open_target='window'
 c.completion.open_categories=["searchengines", "quickmarks","bookmarks","filesystem","history",]
 #c.completion.web_history.max_items=10
 
 # might help error 133
 c.qt.workarounds.remove_service_workers=True
+c.fonts.web.size.minimum_logical = 18
+c.fonts.web.size.minimum = 18
