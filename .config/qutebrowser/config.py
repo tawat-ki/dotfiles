@@ -701,5 +701,5 @@ c.completion.open_categories=["searchengines", "quickmarks","bookmarks","filesys
 
 # might help error 133
 c.qt.workarounds.remove_service_workers=True
-c.fonts.web.size.minimum_logical = 18
-c.fonts.web.size.minimum = 18
+# c.fonts.web.size.minimum_logical = 18
+# c.fonts.web.size.minimum = 18
