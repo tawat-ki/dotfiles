@@ -4,7 +4,7 @@ local lsp = require('lsp-zero').preset({})
 lsp.on_attach(function(client, bufnr)
   lsp.default_keymaps({buffer = bufnr,omit = {},})
 end)
-lsp.ensure_installed({'lua_ls'})
+lsp.ensure_installed({'lua_ls','pylsp'})
 --local cmp = require('cmp')
 --local cmp_select = {behavior = cmp.SelectBehavior.Select}
 --local cmp_mappings = lsp.defaults.cmp_mappings({
