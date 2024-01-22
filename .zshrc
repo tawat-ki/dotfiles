@@ -11,12 +11,11 @@ if [[ -e $HOME/dotfiles/zsh/manjaro-zsh-prompt ]]; then
 fi
 
 export GOOGLE_APPLICATION_CREDENTIALS="/home/tawat-ki/.config/gcloud/application_default_credentials.json"
-#export PYENV_ROOT="$HOME/.pyenv"
-#command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-#eval "$(pyenv init -)"
 
-export PATH="$HOME/.mybin:$PATH"
+export PATH="$HOME/.mybin:$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 export EDITOR=nvim
+export TERM=kitty
 export FZF_DEFAULT_COMMAND='rg --hidden -l ""'
 unsetopt correct_all
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
@@ -152,4 +151,8 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 

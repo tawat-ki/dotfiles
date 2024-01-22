@@ -18,7 +18,7 @@ vim.opt.wrap = false
 vim.opt.colorcolumn = "80"
 vim.opt.isfname:append("@-@")
 vim.g.mapleader = " "
-vim.g.python3_host_prog = '$HOME/python_venv/main/bin/python'
+-- vim.g.python3_host_prog = '$HOME/python_venv/main/bin/python'
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"

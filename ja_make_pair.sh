@@ -13,12 +13,14 @@ ARG=$1
 # Command 1
 
 echo "python -m jupyter_ascending.scripts.make_pair: $ARG"
-~/python_venv/main/bin/python -m jupyter_ascending.scripts.make_pair --base $ARG 
+python -m jupyter_ascending.scripts.make_pair --base $ARG 
 
 # Command 2
 echo "append init cell :  $ARG.sync.py"
 
 cat <<EOF >> $ARG.sync.py
+#%load_ext autoreload
+#%autoreload 2
 #set notebook style
 from IPython.display import display, HTML
 
