@@ -360,7 +360,7 @@ awful.rules.rules = {
             role = {
                 "AlarmWindow", -- Thunderbird's calendar.
                 "ConfigManager", -- Thunderbird's about:config.
-                "pop-up", -- e.g. Google Chrome's (detached) Developer Tools.
+                -- "pop-up", -- e.g. Google Chrome's (detached) Developer Tools.
             },
         },
         properties = { floating = true },
@@ -502,6 +502,10 @@ end
 function naughty.config.notify_callback(args)
     local dump_args=dump(args)
     local log_str=dump_args.."\n----------------------------------------\n"
+    if args.appname=="notify-send" then
+      awful.spawn("bash -c 'mpg123 /usr/share/sounds/gnome/default/alerts/glass.ogg'")
+    end
+
     awful.spawn("bash -c 'echo \""..log_str.. "\" >> $HOME/my_log/naughty.log'")
     return args
 end
