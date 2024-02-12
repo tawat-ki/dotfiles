@@ -1,6 +1,6 @@
 #!/bin/bash
 pip install pynvim==0.4.3 notebook==6.5.6&& \
-pip install jupyter-ascending==0.1.25 && \
+pip install jupyter-ascending && \
 python3 -m jupyter nbextension    install jupyter_ascending --sys-prefix --py && \
 python3 -m jupyter nbextension     enable jupyter_ascending --sys-prefix --py && \
 python3 -m jupyter serverextension enable jupyter_ascending --sys-prefix --py && \

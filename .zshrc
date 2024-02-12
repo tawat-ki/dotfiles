@@ -10,66 +10,27 @@ if [[ -e $HOME/dotfiles/zsh/manjaro-zsh-prompt ]]; then
   source $HOME/dotfiles/zsh/manjaro-zsh-prompt
 fi
 
-export GOOGLE_APPLICATION_CREDENTIALS="/home/tawat-ki/.config/gcloud/application_default_credentials.json"
 
 export PATH="$HOME/.mybin:$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export EDITOR=nvim
-# export TERM=kitty
-export TERM=xterm-256color
+# export TERM=xterm-256color
+export TERM=xterm-kitty
 export FZF_DEFAULT_COMMAND='rg --hidden -l ""'
 unsetopt correct_all
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
 PYDEVD_DISABLE_FILE_VALIDATION=1
-force_color_prompt=yes
-#alias vim="nvim"
-alias j='jupyter qtconsole  --style=paraiso-light &'
-alias icat="kitty +kitten icat"
-alias pb='fg %+'
-alias pm='python ./main.py'
-alias to_csv='libreoffice --headless --convert-to csv'
-alias yt='youtube-dl -x --audio-format mp3'
-alias ytdlp='yt-dlp -x --audio-format mp3 --audio-quality 0'
-alias td='vim ~/todo.md'
-alias dr='docker run --rm -it --entrypoint bash'
-alias getid='xprop _NET_WM_PID | cut -d' ' -f3'
-alias orange='python -m Orange.canvas'
-#alias ja='python -m jupyter_ascending.scripts.make_pair --base'
-alias ja='~/dotfiles/ja_make_pair.sh'
 
-alias start_ja='JUPYTER_PORT=8888 JUPYTER_PORT_RETRIES=0 jupyter notebook --no-browser --NotebookApp.token="copium" &>/dev/null &'
-alias dcc='docker compose rm -f && docker compose pull && docker compose up --build'
-alias DH='xrandr --output HDMI-0 --mode 1920x1080 --pos 1920x0 --rotate left --output DP-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1 --off --output DP-2 --off --output DP-3 --off --output DP-4 --off --output DP-5 --off'
-alias HD='xrandr --output HDMI-0 --mode 1920x1080 --pos 0x0 --rotate left --output DP-0 --primary --mode 1920x1080 --pos 1080x0 --rotate normal --output DP-1 --off --output DP-2 --off --output DP-3 --off --output DP-4 --off --output DP-5 --off'
-alias D='xrandr --output HDMI-0 --off --output DP-0 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1 --off --output DP-2 --off --output DP-3 --off --output DP-4 --off --output DP-5 --off'
+export RANGER_LOAD_DEFAULT_RC=false
+force_color_prompt=yes
+
+alias icat="kitty +kitten icat"
+alias yt='youtube-dl -x --audio-format mp3' # not working
+alias ytdlp='yt-dlp -x --audio-format mp3 --audio-quality 0'
+alias getid='xprop _NET_WM_PID | cut -d' ' -f3'
 alias mv='mv -v'
 alias cp='cp -v'
 
-
-# Enable vi mode
-#bindkey -v
-#function vi-yank-xclip {
-#    zle vi-yank
-#   echo -n "$BUFFER" | xclip -sel c
-#}
-#zle -N vi-yank-xclip
-#bindkey -M vicmd 'y' vi-yank-xclip
-#bindkey -M vicmd 'k' history-substring-search-up
-#bindkey -M vicmd 'j' history-substring-search-down
-#bindkey -r "^[OA" 
-#bindkey -r "^[OB"
-#bindkey -r "^[OC"
-#bindkey -r "^[OD"
-#bindkey -r "^[OF"
-#bindkey -r "^[OH"
-#bindkey -r "^[[200~"
-#bindkey -r "^[[2~"
-#bindkey -r "^[[3~"
-#bindkey -r "^[[A" 
-#bindkey -r "^[[B" 
-#bindkey -r "^[[C" 
-#bindkey -r "^[[D" 
-#setopt IGNORE_EOF
 
 #https://github.com/ihashacks/notifyosd.zsh/blob/e15624e3e9d618528b9118b4247e9e5a7aaebc97/notifyosd.zsh
 # commands to ignore
@@ -134,9 +95,6 @@ preexec_functions+=( notifyosd-preexec )
 #export LS_COLORS=
 
 LS_COLORS="$LS_COLORS:ow=103;30;01"
-
-
-
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
