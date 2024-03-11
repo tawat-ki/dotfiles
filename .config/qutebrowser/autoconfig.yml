@@ -6,5 +6,5 @@
 
 config_version: 2
 settings:
-  content.javascript.can_access_clipboard:
-    chat.openai.com: true
+  fonts.web.size.minimum:
+    global: 20

@@ -94,6 +94,11 @@ _G.packer_plugins = {
     path = "/home/tawat-ki/.local/share/nvim/site/pack/packer/start/formatter.nvim",
     url = "https://github.com/mhartington/formatter.nvim"
   },
+  harpoon = {
+    loaded = true,
+    path = "/home/tawat-ki/.local/share/nvim/site/pack/packer/start/harpoon",
+    url = "https://github.com/ThePrimeagen/harpoon"
+  },
   ["indent-blankline.nvim"] = {
     loaded = true,
     path = "/home/tawat-ki/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
@@ -169,6 +174,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/tawat-ki/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  rainbow_csv = {
+    loaded = true,
+    path = "/home/tawat-ki/.local/share/nvim/site/pack/packer/start/rainbow_csv",
+    url = "https://github.com/mechatroner/rainbow_csv"
   },
   ["telescope.nvim"] = {
     loaded = true,
