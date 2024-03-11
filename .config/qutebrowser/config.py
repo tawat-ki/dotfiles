@@ -679,3 +679,11 @@ c.completion.open_categories=["searchengines", "quickmarks","bookmarks","filesys
 
 # might help error 133
 c.qt.workarounds.remove_service_workers=True
+c.colors.webpage.preferred_color_scheme = 'dark'
+c.colors.webpage.darkmode.enabled = True
+c.colors.webpage.darkmode.algorithm = "lightness-cielab"
+c.colors.webpage.darkmode.threshold.text = 150
+c.colors.webpage.darkmode.threshold.background = 100
+c.colors.webpage.darkmode.policy.images = 'always'
+c.colors.webpage.darkmode.grayscale.images = 0.35
+c.colors.webpage.bg = "#282a36"
