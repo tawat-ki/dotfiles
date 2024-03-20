@@ -704,7 +704,7 @@ c.qt.workarounds.remove_service_workers=True
 # c.fonts.web.size.minimum_logical = 18
 # c.fonts.web.size.minimum = 18
 
-c.colors.webpage.bg = 'black'
+c.colors.webpage.bg = '#282a36'
 c.colors.webpage.preferred_color_scheme = 'dark'
 c.colors.webpage.darkmode.enabled = True
 c.colors.webpage.darkmode.algorithm = "lightness-cielab"

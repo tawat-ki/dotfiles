@@ -503,7 +503,7 @@ function naughty.config.notify_callback(args)
     local dump_args=dump(args)
     local log_str=dump_args.."\n----------------------------------------\n"
     if args.appname=="notify-send" then
-      awful.spawn("bash -c 'mpg123 /usr/share/sounds/gnome/default/alerts/glass.ogg'")
+      awful.spawn("bash -c 'paplay /usr/share/sounds/gnome/default/alerts/glass.ogg'")
     end
 
     awful.spawn("bash -c 'echo \""..log_str.. "\" >> $HOME/my_log/naughty.log'")
